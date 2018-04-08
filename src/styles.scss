@@ -1,0 +1,523 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Common styles */
+html, body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+@viewport {
+    width: device-width;
+    zoom: 1;
+}
+
+.cv-external-link {
+    color: #039be5;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &::after {
+        font-family: 'Material Icons Extended';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 16px;
+        display :inline-block;
+        width: 1em;
+        height: 1em;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: 'liga';
+        text-decoration: none;
+        content: "open_in_new";
+        margin-left: 4px;
+        vertical-align: middle;
+    }
+}
+
+.cv-main-container {
+    height: 100%;
+
+    header {
+        background-color: black;
+        color: white;
+    }
+
+    main {
+        overflow-y: auto;
+    }
+
+    footer {
+        background-color: black;
+        color: white;
+    }
+}
+
+/* Footer */
+$cv-icon-size: 1.5rem;
+
+.cv-footer-container {
+    padding: 0.5rem;
+    height: 100%;
+
+    mat-icon {
+        font-size: $cv-icon-size;
+        height: $cv-icon-size;
+        width: $cv-icon-size;
+        line-height: $cv-icon-size;
+        color: white;
+    }
+}
+
+/* Header */
+.cv-header-container {
+    padding: 0.5rem;
+    height: 100%;
+
+        a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+
+            &:hover, &:active {
+                color: #AAA;
+                text-decoration: underline;
+            }
+        }
+
+        nav {
+            height: 100%;
+            margin: 0;
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    &.is-active {
+                        font-weight: bold;
+
+                        a::before {
+                            content: '{';
+                        }
+
+                        a::after {
+                            content: '}';
+                        }
+                    }
+                }
+            }
+        }
+}
+
+/* Home styles */
+.cv-home-spinner {
+    background-color: #383838;
+    height: 100%;
+    width: 100vw;
+}
+
+.cv-code-variable {
+    color: #9CDCFE;
+}
+
+.cv-code-type {
+    color: #4EC9B0;
+}
+
+.cv-code-litteral {
+    color: #CE9178;
+}
+
+.cv-code-function {
+    color: #D7BA7D;
+}
+
+.cv-code-instruction {
+    color: #569CD6;
+}
+
+.cv-width-800 {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 90vw;
+}
+
+.cv-home-skill-competence {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.cv-home-container {
+    background-color: #383838;
+    color: #D4D4D4;
+    font-family: 'Source Code Pro', monospace;
+    min-height: 100vh;
+    text-align: center;
+    width: 100vw;
+
+    section {
+        margin: 2rem auto;
+        max-width: 1024px;
+        width: 90vw;
+    }
+
+    .cv-home-intro-title {
+        margin: 0 0 2rem 0;
+        font-size: 2rem;
+    }
+
+    .cv-home-intro-skills {
+        font-size: 1.4rem;
+        max-width: 100%;
+
+        a {
+            background-color: #1E1E1E;
+            border-radius: 12px;
+            color: #D4D4D4;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 12px 0;
+            padding: 6px 12px;
+            text-decoration: none;
+
+            &:hover, &:active {
+                color: #AAA;
+            }
+        }
+    }
+
+    cv-home-skill {
+        width: 100vw;
+    
+        section {
+            text-align: center;            
+    
+            .cv-home-skill-competence {
+                border-left: 1px solid black;
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+                font-size: 1.6rem;
+                font-weight: bold;
+                max-width:100%;
+            }
+    
+            .cv-home-skill-chips > span {
+                background-color: #1E1E1E;
+                border-radius: 0.5rem;
+                font-size: 1rem;
+                font-weight: bold;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
+                // margin: 12px 0;
+                max-width:100%;
+                padding: 0.5rem;
+            }
+    
+            .cv-home-skill-header {
+                background-color: #1E1E1E;
+                border-left: 1px solid black;
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+                font-size: 1.8rem;
+                padding: 0.5rem;
+                text-align: left;
+            }
+    
+            .cv-home-skill-content {
+                background-color: #1E1E1E;
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+                font-size: 1.2rem;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+    
+                div {
+                    padding: 0.5rem;
+                }
+    
+                .cv-home-skill-no-tab {
+                    margin: 0 0 0 2rem;
+                }
+    
+                .cv-home-skill-one-tab {
+                    margin: 0 0 0 4rem;
+                }
+            }
+    
+            .cv-home-skill-footer {
+                background-color: #1E1E1E;
+                border-left: 1px solid black;
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+                font-size: 1.8rem;
+                padding: 0.5rem;
+                text-align: left;
+    
+                a {
+                    background-color: #383838;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    margin: 12px 0;
+                    padding: 6px 12px;
+                    text-decoration: none;
+    
+                    &:hover, &:active {
+                        color: #AAA;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Resume styles */
+$timeline-color: #009688;
+$timeline-dot-size: 8px;
+$timeline-width: 4px;
+$timeline-icon-size: 24px;
+
+.cv-resume-spinner {
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+}
+
+.cv-resume-container {
+    background-color: white;
+    color: #333;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100vw;
+
+    h1 {
+        font-size: 2rem;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    mat-tab-group {
+        margin: 0 auto;
+        max-width: 1024px;
+        width: 90vw;
+    }
+
+    .cv-resume-timeline {
+        list-style: none;
+        margin: 0 0 0 0.5em;
+        padding: 0;
+        text-align: left;
+
+        .cv-resume-timeline-event {
+            border-left: $timeline-width solid $timeline-color;
+            padding: 3.5em 2em 3.5em;
+            position: relative;
+
+            &:before {
+                color: $timeline-color;
+                content: attr(data-date);
+                display: block;
+                font-weight: bold;
+                left: 2em;
+                position: absolute;
+                top: 0.9em;
+            }
+
+            &:after {
+                background: white;
+                border: $timeline-width solid $timeline-color;
+                border-radius: $timeline-dot-size;
+                content: '';
+                display: block;
+                height: $timeline-dot-size;
+                left: -0.57em;
+                position: absolute;
+                top: 1em;
+                width: $timeline-dot-size;
+            }
+        }
+    }
+
+    mat-card {
+        margin: 2rem;
+    }
+
+    mat-card:hover {
+        box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+    }
+
+    mat-card-title {
+        font-size: 1.2rem;
+        text-align: center;
+
+        .cv-resume-event-title {
+            font-weight: bold;
+        }
+    }
+
+    mat-card-content {
+        font-size: 1rem;
+        margin-top: 32px;
+
+        mat-icon {
+            font-size: $timeline-icon-size;
+            height: $timeline-icon-size;
+            width: $timeline-icon-size;
+            line-height: $timeline-icon-size;
+            color: black;
+        }
+
+        .cv-resume-event-content-title {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        ul {
+            list-style: square;
+            list-style-position: outside;
+            padding-left: 1em;
+
+            li:not(:last-child) {
+                margin-bottom : 0.5rem;
+            }
+        }
+    }
+}
+
+/* Contact styles */
+.cv-contact-container {
+    background-color: white;
+    color: #333;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100vw;
+
+    h1 {
+        font-size: 2rem;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    mat-card {
+        margin: 1rem auto;
+        max-width: 600px;
+        width: 80vw;
+
+        &:hover {
+            box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+        }
+    }
+
+    mat-card-title {
+        font-size: 1.5rem;
+    }
+
+    mat-card-content {
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+/* Source code styles */
+.cv-source-code-container {
+    background-color: white;
+    color: #333;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100vw;
+
+    h1 {
+        font-size: 2rem;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    mat-card {
+        margin: 1rem auto;
+        max-width: 600px;
+        width: 80vw;
+
+        &:hover {
+            box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+        }
+    }
+
+    mat-card-title {
+        font-size: 1.5rem;
+    }
+
+    mat-card-content {
+        font-size: 1rem;
+        margin-top: 2rem;
+
+        mat-icon {
+            font-size: $timeline-icon-size;
+            height: $timeline-icon-size;
+            width: $timeline-icon-size;
+            line-height: $timeline-icon-size;
+            color: black;
+        }
+
+        .cv-source-code-title {
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style: square;
+            list-style-position: outside;
+            padding-left: 1em;
+
+            li:not(:last-child) {
+                margin-bottom : 0.5rem;
+            }
+        }
+    }
+}
+
+/* About styles */
+.cv-about-container {
+    background-color: white;
+    color: #333;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 100vw;
+
+    h1 {
+        font-size: 2rem;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    mat-card {
+        margin: 1rem auto;
+        max-width: 600px;
+        width: 80vw;
+
+        &:hover {
+            box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+        }
+    }
+
+    mat-card-title {
+        font-size: 1.5rem;
+    }
+
+    mat-card-content {
+        font-size: 1rem;
+    }
+}

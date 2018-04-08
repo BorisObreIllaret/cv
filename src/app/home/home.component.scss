@@ -1,0 +1,157 @@
+// // div.cv-container {
+// //     margin: 0 auto;
+
+// //     @media screen and (max-width: 959px) {
+// //         width: 400px;
+// //     }
+
+// //     @media screen and (min-width: 960px) {
+// //         width: 800px;
+// //     }
+
+// //     div.cv-header {
+// //         margin: 24px 0;
+// //         font-family: 'Source Code Pro', monospace;
+// //         font-size: 2em;
+// //         text-align: center;
+// //         width: 100%;
+
+// //         div.cv-header-name {
+// //             color: #424242;
+// //             margin: 12px 0;
+// //         }
+
+// //         div.cv-header-job {
+// //             color: #212121;            
+// //             margin: 12px 0;
+// //         }
+
+// //         span.cv-header-skill {
+// //             background-color: #9E9E9E;
+// //             color: black;
+// //             font-weight: bold;
+// //             font-size: 0.5em;
+// //             padding: 6px 12px;
+// //             border-radius: 12px;
+// //             margin: 12px 0;
+// //         }
+// //     }
+// // }
+
+// // mat-card {
+
+// //     &:hover {
+// //         box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+// //     }
+    
+// //     mat-card-title {
+// //         background-color: #9e9e9e;
+// //         color: white;
+// //         padding: 4px;
+
+// //         mat-icon {
+// //             font-size: 32px;
+// //             height: 32px;
+// //             width: 32px;
+// //             line-height: 32px;
+// //             color: white;
+// //         }
+// //     }
+
+// //     mat-card-content {
+// //         font-size: 1em;
+
+// //         .cv-external-link {
+// //             color: #039be5;
+// //             text-decoration: underline;
+// //             cursor: pointer;
+
+// //             &::after {
+// //                 font-family: 'Material Icons Extended';
+// //                 font-weight: normal;
+// //                 font-style: normal;
+// //                 font-size: 16px;
+// //                 display :inline-block;
+// //                 width: 1em;
+// //                 height: 1em;
+// //                 line-height: 1;
+// //                 text-transform: none;
+// //                 letter-spacing: normal;
+// //                 word-wrap: normal;
+// //                 white-space: nowrap;
+// //                 direction: ltr;
+// //                 -webkit-font-smoothing: antialiased;
+// //                 text-rendering: optimizeLegibility;
+// //                 font-feature-settings: 'liga';
+// //                 text-decoration: none;
+// //                 content: "open_in_new";
+// //                 margin-left: 4px;
+// //                 vertical-align: middle;
+// //             }
+// //         }
+// //     }
+// // }
+
+
+// .cv-home-spinner {
+//     background-color: #383838;
+//     height: 100vh;
+//     width: 100%;
+// }
+
+// .cv-code-variable {
+//     color: #9CDCFE;
+// }
+
+// .cv-code-type {
+//     color: #4EC9B0;
+// }
+
+// .cv-home-container {
+//     background-color: #383838;
+//     color: #D4D4D4;
+//     font-family: 'Source Code Pro', monospace;
+//     min-height: 100vh;
+//     text-align: center;
+//     width: 100%;
+
+//     section {
+//         margin: 24px 0;
+//         padding: 24px 0;
+//         width: 100%;
+//     }
+
+//     .cv-width-800 {
+//         width: 800px;
+//         margin: 0 auto;
+//     }
+
+//     .cv-home-intro-title {
+//         margin: 0 0 24px 0;
+//         font-size: 2em;
+//     }
+
+//     .cv-home-intro-skills {
+//         margin: 24px 0 0 0;
+//         font-size: 1.4em;
+
+//         a {
+//             background-color: #1E1E1E;
+//             border-radius: 12px;
+//             color: #D4D4D4;
+//             cursor: pointer;
+//             font-weight: bold;
+//             margin: 12px 0;
+//             padding: 6px 12px;
+//             text-decoration: none;
+
+//             &:hover, &:active {
+//                 color: #AAA;
+//             }
+//         }
+//     }
+
+//     cv-home-skill {
+//         width: 100%;
+//     }
+// }

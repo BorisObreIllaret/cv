@@ -1,0 +1,40 @@
+<li *ngIf="degree" class="cv-resume-timeline-event" [attr.data-date]="degreeDuration">
+    <mat-card>
+        <mat-card-title            
+            fxLayout.lt-sm="column"
+            fxLayoutAlign.lt-sm="center center"
+            fxLayout="row"
+            fxLayoutAlign="start start"
+            fxLayoutGap="1rem">
+            <span class="cv-resume-event-title">{{ degree.level }}</span>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="1rem">
+            <div 
+                fxLayout.lt-sm="column"
+                fxLayoutAlign.lt-sm="start center"    
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                fxLayoutGap="0.5rem"
+                class="cv-resume-event-content-title">
+                <mat-icon svgIcon="graduate-cap"></mat-icon>
+                <span>{{ degree.grade }}</span>
+                <span>&#x2022;</span>
+                <span>{{ degree.subject }}</span>
+            </div>
+            <mat-divider [inset]="true" fxHide.gt-xs></mat-divider>
+            <div
+                fxLayout.lt-sm="column"
+                fxLayoutAlign.lt-sm="start center"    
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                fxLayoutGap="0.5rem"
+                class="cv-resume-event-content-title">
+                <mat-icon>location_city</mat-icon>
+                <span>{{ degree.university }}</span>
+                <span>&#x2022;</span>
+                <span>{{ degree.location }}</span>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</li>

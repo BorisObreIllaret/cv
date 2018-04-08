@@ -1,0 +1,4 @@
+<a mat-list-item [title]="hint" [routerLink]="routerLink" [class.is-active]="isActive">
+    <mat-icon mat-list-icon *ngIf="icon" aria-hidden="true">{{ icon }}</mat-icon>
+    <span mat-line><ng-content></ng-content></span>
+</a>

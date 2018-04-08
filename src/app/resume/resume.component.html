@@ -1,0 +1,84 @@
+<div *ngIf="(isLoading$ | async) else resumecontainer" fxLayout fxLayoutAlign="center center" class="cv-resume-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div>
+<ng-template #resumecontainer>
+    <div fxLayout="column" fxLayoutAlign="start center" class="cv-resume-container">
+        <h1>CV</h1>        
+        <mat-tab-group>
+            <mat-tab label="Expérience professionnelle">
+                <ul class="cv-resume-timeline">
+                    <ng-template ngFor let-job [ngForOf]="(jobs$ | async)">
+                        <cv-resume-job [job]="job"></cv-resume-job>
+                    </ng-template>
+                    <!-- <li class="cv-resume-timeline-event" data-date="Septembre 2006 - Aujourd'hui">
+                        <mat-card>
+                            <mat-card-title fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="12px">
+                                <span class="cv-resume-event-title">Chef de projet informatique</span>
+                                <span>&#x2022;</span>
+                                <span>Scamark, Ivry-sur-Seine (94)</span>                                
+                            </mat-card-title>
+                            <mat-divider></mat-divider>
+                            <mat-card-content fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="12px">
+                                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px" class="cv-resume-event-content-title"><mat-icon>location_city</mat-icon><span>Entreprise</span></div>
+                                    <span>Scamark est la filiale de l'enseigne de grande distribution E.Leclerc qui assure le développement des produits référencés sous les marques de distributeur : Marque Repère, Nos Régions ont du Talent, ECO+, L'origine du goût. Scamark a un effectif d'environ 200 collaborateurs et a réalisé un chiffre d'affaires de plus de 3,5 milliards d'euro en 2016.</span>
+                                </div>
+                                <mat-divider [inset]="true"></mat-divider>
+                                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px" class="cv-resume-event-content-title"><mat-icon>business_center</mat-icon><span>Poste</span></div>
+                                    <span>J'occupe le poste de chef de projet au service informatique. Au sein d'une équipe soudée et resserée où chacun doit être polyvalent, je suis en charge de l'administration de certaines de nos solutions logiciels (SAP, Lascom CPG et autres développements internes), de la gestion d'une partie des projets informatiques et du développement de solutions internes. J'aide également mes collègues sur des tâches simples d'administration d'Active Directory, Windows Server, IIS, SQL Server, System i (AS/400) et Lotus Notes.</span>
+                                </div>
+                                <mat-divider [inset]="true"></mat-divider>
+                                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px" class="cv-resume-event-content-title"><mat-icon>label</mat-icon><span>Administration</span></div>
+                                    <span>Je dois m'assurer que nos solutions logiciels soient opérationnelles, fiables et performantes. Je suis en charge de leurs mises à jour : j'ai effectué plusieurs montées de version de SAP et Lascom CPG. J'apporte également un support à nos utilisateurs.</span>
+                                </div>
+                                <mat-divider [inset]="true"></mat-divider>
+                                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px" class="cv-resume-event-content-title"><mat-icon>label</mat-icon><span>Gestion de projet</span></div>
+                                    <span>J'assure la gestion de toute la vie d'un projet : définition des besoins avec les équipes fonctionnelles, assistance à la rédaction du cahier des charges fonctionnel, réalisation de maquettes éventuelles, rédaction du cahier des charges techniques, définition des jalons, suivi des développements et des jalons, livraison en recette, suivi de la recette, corrections, mise en production, suivi de mise en production, maintenance. Selon l'envergure du projet, j'assure moi même les développements ou bien je travaille avec un ou plusieurs consultants.</span>
+                                </div>
+                                <mat-divider [inset]="true"></mat-divider>
+                                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px" class="cv-resume-event-content-title"><mat-icon>label</mat-icon><span>Développement</span></div>
+                                    <span>Je réalise une partie des développements internes : en ABAP sur SAP, en C# sur nos autres solutions. Côté SAP, je développe et maintiens des spécifiques (reports, dynpros, modules de fonction et formulaires), je gère le dictionnaire et une partie du paramétrage. Nos autres solutions développées en internes sont basées sur le framework .NET de Microsoft : il s'agit de portails intranet et extranet, ainsi que certains outils client lourd. Je participe au développement et à la maintenance de certaines de ces solutions.</span>
+                                </div>
+                                <mat-divider [inset]="true"></mat-divider>
+                                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="8px" class="cv-resume-event-content-title"><mat-icon>thumb_up</mat-icon><span>Réalisations</span></div>
+                                    <ul>
+                                        <li>Portail extranet de suivi des actions correctives : gestion du projet. Ce portail permet aux fabricants et aux ingénieurs qualité de travailler de façon fluide et sûre sur les non-conformités remontées par les consommateurs, les laboratoires, les magasins, etc.</li>
+                                        <li>Interfaces données produits et fournisseurs entre Lascom CPG et SAP : développements. Cette interface assure le transfert automatique vers SAP de certaines informations saisies sur Lascom CPG par les fabricants et les équipes SCAMARK.</li>
+                                        <li>Suivi des relectures sur Lascom CPG : gestion du projet et développements de spécifiques. Le workflow de suivi de nos fiches de spécification produit a été enrichi avec des nouvelles tâches permettant de suivre les relectures des éléments d'emballage imprimés.</li>
+                                        <li>Montée de version SAP de 4.6C vers ECC6, puis vers EhP7.</li>
+                                        <li>Mise en &#x153;uvre de l'archivage dans SAP des modules FI, CO, MM et SD.</li>
+                                    </ul>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </li> -->
+                </ul>
+            </mat-tab>
+            <mat-tab label="Formation initiale">
+                <ul class="cv-resume-timeline">
+                    <ng-template ngFor let-degree [ngForOf]="(degrees$ | async)">
+                        <cv-resume-degree [degree]="degree"></cv-resume-degree>
+                    </ng-template>
+                </ul>
+            </mat-tab>
+            <mat-tab label="Activités et centres d'intérêts">
+                <cv-resume-hobbies [hobbies]="(hobbies$ | async)"></cv-resume-hobbies>
+            </mat-tab>
+            <mat-tab label="Téléchargement">
+                <ng-template mat-tab-label>
+                    <mat-icon>file_download</mat-icon>
+                </ng-template>
+                <mat-card>
+                    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+                        <a href="assets/pdf/CV.pdf" target="_blank" class="cv-external-link">Télécharger le CV au format PDF</a>
+                    </div>
+                </mat-card>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</ng-template>

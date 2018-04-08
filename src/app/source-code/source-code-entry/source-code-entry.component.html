@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon *ngIf="entry.svgIcon" [svgIcon]="entry.svgIcon"></mat-icon>
+        <mat-icon *ngIf="entry.icon">{{ entry.icon }}</mat-icon>
+        <span>{{ entry.name }}</span>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div class="cv-source-code-title">{{ entry.description }}</div>
+        <ul>
+            <li *ngFor="let item of entry.items">{{ item.title }}&nbsp;: <a [href]="item.url" target="_blank" class="cv-external-link">{{ item.name }}</a></li>
+        </ul>
+    </mat-card-content>
+</mat-card>

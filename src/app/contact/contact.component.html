@@ -1,0 +1,39 @@
+<div *ngIf="(isLoading$ | async) else contactcontainer" fxLayout fxLayoutAlign="center center" class="cv-resume-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div>
+<ng-template #contactcontainer>
+    <div fxLayout="column" fxLayoutAlign="start center" class="cv-contact-container">
+        <h1>Contact</h1>
+        <mat-card>
+            <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+                <mat-icon svgIcon="square-linkedin"></mat-icon>
+                <span>LinkedIn</span>
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                Visitez ma <a href="https://fr.linkedin.com/in/boris-obre-illaret-19169513b" target="_blank" class="cv-external-link">page LinkedIn</a>.
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+                <mat-icon svgIcon="circle-viadeo"></mat-icon>
+                <span>Viadeo</span>
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                Visitez ma <a href="https://fr.viadeo.com/fr/profile/boris.obre-illaret" target="_blank" class="cv-external-link">page Viadeo</a>.
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+                <mat-icon>email</mat-icon>
+                <span>Email / Skype</span>
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+                <re-captcha id="recaptcha" (resolved)="onRecaptchaResolved($event)"></re-captcha>                
+                <button mat-raised-button color="primary" [disabled]="isButtonDisabled" (click)="onContactClick()">Me contacter</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</ng-template>

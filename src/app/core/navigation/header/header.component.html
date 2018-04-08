@@ -1,0 +1,21 @@
+<div class="cv-header-container">
+    <nav fxFlex fxLayout fxLayoutAlign="center stretch">
+        <ul fxLayout="center center" fxLayoutGap="24px">
+            <li mat-list-item fxFlexAlign="center" *ngFor="let navItem of (navigationItems$ | async); index as navIndex" [class.is-active]="navItem.isActive">
+                <a [attr.data-name]="navItem.name" [routerLink]="navItem.routerLink" [fxHide.lt-md]="navIndex > 2" [fxHide.lt-sm]="navIndex > 1">
+                    {{ navItem.label }}
+                </a>
+            </li>
+        </ul>
+        <button fxHide.gt-sm mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <ng-template ngFor let-navItem [ngForOf]="(navigationItems$ | async)" let-navIndex="index">
+                <a mat-menu-item [attr.data-name]="navItem.name" [routerLink]="navItem.routerLink" [fxHide.lt-md]="navIndex < 3" [fxHide.lt-sm]="navIndex < 2">
+                    {{ navItem.label }}
+                </a>
+            </ng-template>
+        </mat-menu>
+    </nav>
+</div>

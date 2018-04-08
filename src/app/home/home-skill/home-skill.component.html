@@ -1,0 +1,58 @@
+<section [id]="skill.id">
+    <div fxLayout.lt-sm="column"
+         fxLayoutAlign.lt-sm="center center"
+         fxLayout="row"
+         fxLayoutAlign="space-between center"
+         fxLayoutGap="1rem"
+         class="cv-home-skill-competence">
+        <span lang="fr" class="cv-code-function">{{ skill.competence }}</span>
+        <div fxLayout.lt-sm="column"
+             fxLayoutAlign.lt-sm="center stretch"
+             fxLayout="row"
+             fxLayoutAlign="end center" fxLayoutGap="1rem" class="cv-home-skill-chips">
+            <span *ngFor="let chip of skill.chips" [innerHTML]="(chip | keepHtml)"></span>
+        </div>
+    </div>
+    <div class="cv-home-skill-header">
+        <span>&#x7B;</span>
+    </div>
+    <div class="cv-home-skill-content">
+        <div class="cv-home-skill-no-tab">
+            <span class="cv-code-instruction">var</span>
+            <span class="cv-code-variable">skills</span>
+            = [
+        </div>
+        <div *ngFor="let s of skill.skills" class="cv-home-skill-one-tab">
+            <span class="cv-code-litteral">&#x22;{{ s }}&#x22;</span>,
+        </div>
+        <div class="cv-home-skill-no-tab">
+            ];
+        </div>
+        <ng-template [ngIf]="skill.hobbies">
+            <br>
+            <div class="cv-home-skill-no-tab">
+                <span class="cv-code-instruction">var</span>
+                <span class="cv-code-variable">hobbies</span>
+                = [
+                <div *ngFor="let h of skill.hobbies" class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">&#x22;{{ h }}&#x22;</span>,
+                </div>
+                <div class="cv-home-skill-no-tab">
+                    ];
+                </div>
+            </div>
+        </ng-template>
+        <ng-template [ngIf]="skill.experience">
+            <br>
+            <div class="cv-home-skill-no-tab">
+                <span class="cv-code-instruction">var</span>
+                <span class="cv-code-variable">experience</span>
+                =
+                <span class="cv-code-litteral">&#x22;{{ skill.experience }}&#x22;</span>;
+            </div>
+        </ng-template>
+    </div>
+    <div class="cv-home-skill-footer">
+        <span>&#x7D;</span>
+    </div>
+</section>

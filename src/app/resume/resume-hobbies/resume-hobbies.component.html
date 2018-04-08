@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-title fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="1rem">
+        <span class="cv-resume-event-title">Activités et centres d'intérêts</span>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="1rem">
+        <ng-template ngFor let-hobby [ngForOf]="hobbies" let-lastHobby="last">
+            <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="0.5rem">
+                <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="0.5rem" class="cv-resume-event-content-title">
+                    <mat-icon *ngIf="hobby.icon">{{ hobby.icon }}</mat-icon>
+                    <mat-icon *ngIf="hobby.svgIcon" [svgIcon]="hobby.svgIcon"></mat-icon>
+                    <span>{{ hobby.name }}</span>
+                </div>
+                <span>{{ hobby.description }}</span>
+            </div>
+            <mat-divider *ngIf="!lastHobby" [inset]="true"></mat-divider>
+        </ng-template>
+    </mat-card-content>
+</mat-card>

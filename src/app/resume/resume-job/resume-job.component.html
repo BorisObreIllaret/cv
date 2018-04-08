@@ -1,0 +1,42 @@
+<li *ngIf="job" class="cv-resume-timeline-event" [attr.data-date]="jobDuration">
+    <mat-card>
+        <mat-card-title
+            fxLayout.lt-sm="column"
+            fxLayoutAlign.lt-sm="center center"
+            fxLayout="row"
+            fxLayoutAlign="start start"
+            fxLayoutGap="1rem">
+            <span class="cv-resume-event-title">{{ job.name }}</span>
+            <span>&#x2022;</span>
+            <span>{{ job.company }}, {{ job.companyLocation }}</span>
+        </mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="1rem">
+            <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="0.5rem">
+                <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="0.5rem" class="cv-resume-event-content-title"><mat-icon>location_city</mat-icon><span>Entreprise</span></div>
+                <span>{{ job.companyDescription }}</span>
+            </div>
+            <mat-divider [inset]="true"></mat-divider>
+            <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="0.5rem">
+                <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="0.5rem" class="cv-resume-event-content-title"><mat-icon>business_center</mat-icon><span>Poste</span></div>
+                <span>{{ job.description }}</span>
+            </div>
+            <mat-divider [inset]="true"></mat-divider>
+            <ng-template ngFor let-assignment [ngForOf]="(this.assignments$ | async)">
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="0.5rem">
+                    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="0.5rem" class="cv-resume-event-content-title"><mat-icon>label</mat-icon><span>{{ assignment.name }}</span></div>
+                    <ul>
+                        <li *ngFor="let task of assignment.tasks">{{ task }}</li>
+                    </ul>
+                </div>
+                <mat-divider [inset]="true"></mat-divider>
+            </ng-template>
+            <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="0.5rem">
+                <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="0.5rem" class="cv-resume-event-content-title"><mat-icon>thumb_up</mat-icon><span>Réalisations</span></div>
+                <ul>
+                    <li *ngFor="let achievement of job.achievements">{{ achievement }}</li>
+                </ul>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</li>

@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$cv-app-primary: mat-palette($mat-teal);
+$cv-app-accent: mat-palette($mat-deep_purple, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$cv-app-warn: mat-palette($mat-amber);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$cv-app-theme: mat-light-theme($cv-app-primary, $cv-app-accent, $cv-app-warn);
+
+@include angular-material-theme($cv-app-theme);

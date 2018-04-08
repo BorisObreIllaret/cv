@@ -1,0 +1,157 @@
+// $timeline-color: #009688;
+// $timeline-dot-size: 8px;
+// $timeline-width: 4px;
+// $timeline-icon-size: 24px;
+
+// .cv-resume-spinner {
+//     background-color: white;
+//     height: 100vh;
+//     width: 100%;
+// }
+
+// .cv-resume-container {
+//     background-color: white;
+//     color: #333;
+//     font-family: 'Roboto', sans-serif;
+//     margin: 0 auto;
+//     min-height: 100vh;
+    
+//     width: 800px;
+
+//     h1 {
+//         text-align: center;
+//     }
+
+//     mat-tab-group {
+//         width: 100%;
+//     }
+
+//     .cv-resume-timeline {
+//         list-style: none;
+//         text-align: left;
+
+//         .cv-resume-timeline-event {
+//             border-left: $timeline-width solid $timeline-color;
+//             padding: 3em 2em 2em;
+//             position: relative;
+
+//             &:before {
+//                 color: $timeline-color;
+//                 content: attr(data-date);
+//                 display: block;
+//                 font-weight: bold;
+//                 left: 2em;
+//                 position: absolute;
+//                 top: 0.9em;
+//             }
+
+//             &:after {
+//                 background: white;
+//                 border: $timeline-width solid $timeline-color;
+//                 border-radius: $timeline-dot-size;
+//                 content: '';
+//                 display: block;
+//                 height: $timeline-dot-size;
+//                 left: -9.5px;
+//                 position: absolute;
+//                 top: 1em;
+//                 width: $timeline-dot-size;
+//             }
+//         }
+//     }
+
+//     mat-card:hover {
+//         box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+//     }
+
+//     mat-card-title {
+//         font-size: 1.1em;
+
+//         .cv-resume-event-title {
+//             font-weight: bold;
+//         }
+//     }
+
+//     mat-card-content {
+//         font-size: 1em;
+//         margin-top: 32px;
+
+//         mat-icon {
+//             font-size: $timeline-icon-size;
+//             height: $timeline-icon-size;
+//             width: $timeline-icon-size;
+//             line-height: $timeline-icon-size;
+//             color: black;
+//         }
+
+//         .cv-resume-event-content-title {
+//             font-weight: bold;
+//         }
+
+//         ul {
+//             list-style: square;
+//             list-style-position: outside;
+//             padding-left: 1em;
+
+//             li:not(:last-child) {
+//                 margin-bottom : 8px;
+//             }
+//         }
+//     }
+
+//     // .cv-resume-timeline {
+//     //     border-bottom-right-radius: 2px;
+//     //     border-left: 8px solid $timeline-color;
+//     //     border-top-right-radius: 2px;
+//     //     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+//     //     line-height: 1.4em;
+//     //     list-style: none;
+//     //     margin: 50px auto;
+//     //     padding: 20px;
+//     //     position: relative;
+//     //     text-align: left;
+
+//     //     h1, h2, h3 {
+//     //         font-size: 1.4em;
+//     //     }
+
+//     //     .cv-resume-timeline-event {
+//     //         border-bottom: 1px solid rgba(160, 160, 160, 0.2);
+//     //         margin-bottom: 20px;
+//     //         padding-bottom: 15px;
+//     //         position: relative;
+
+//     //         &:after, &:before {
+//     //             display: block;
+//     //             position: absolute;
+//     //             top: 0;
+//     //         }
+
+//     //         &:after {
+//     //             background: #212121;
+//     //             border-radius: 50%;
+//     //             box-shadow: 0 0 0 8px $timeline-color;
+//     //             content: "";
+//     //             height: 11px;
+//     //             left: -30px;
+//     //             top: 5px;
+//     //             width: 11px;
+//     //         }
+
+//     //         &:before {
+//     //             color: #212121;
+//     //             content: attr(data-date);
+//     //             font-size: 1em;
+//     //             left: -177.5px;
+//     //             min-width: 120px;
+//     //             text-align: right;
+//     //         }
+
+//     //         &:last-of-type {
+//     //             border: none;
+//     //             margin-bottom: 0;
+//     //             padding-bottom: 0;
+//     //         }
+//     //     }
+//     // }
+// }

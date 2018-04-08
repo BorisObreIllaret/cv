@@ -1,0 +1,53 @@
+mat-card {
+
+    &:hover {
+        box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+    }
+    
+    mat-card-title {
+        background-color: #9e9e9e;
+        color: black;
+        padding: 4px;
+
+        mat-icon {
+            font-size: 32px;
+            height: 32px;
+            width: 32px;
+            line-height: 32px;
+            color: black;
+        }
+    }
+
+    mat-card-content {
+        font-size: 1em;
+
+        .cv-external-link {
+            color: #039be5;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &::after {
+                font-family: 'Material Icons Extended';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 16px;
+                display :inline-block;
+                width: 1em;
+                height: 1em;
+                line-height: 1;
+                text-transform: none;
+                letter-spacing: normal;
+                word-wrap: normal;
+                white-space: nowrap;
+                direction: ltr;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+                font-feature-settings: 'liga';
+                text-decoration: none;
+                content: "open_in_new";
+                margin-left: 4px;
+                vertical-align: middle;
+            }
+        }
+    }
+}

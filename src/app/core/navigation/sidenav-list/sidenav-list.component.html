@@ -1,0 +1,11 @@
+<mat-nav-list (click)="sidenavClose.emit()">
+    <ng-template ngFor let-navItem [ngForOf]="navigationItems">    
+        <cv-sidenav-item
+            [icon]="navItem.icon"
+            [hint]="navItem.hint"
+            [routerLink]="navItem.routerLink"
+            [isActive]="navItem.isActive">
+            {{ navItem.label }}
+        </cv-sidenav-item>
+    </ng-template>
+</mat-nav-list>

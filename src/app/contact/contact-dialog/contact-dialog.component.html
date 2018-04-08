@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="0.5rem">
+    <h2 mat-dialog-title>Me contacter</h2>
+    <mat-dialog-content fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+        <a [href]='mailToUrl' class="cv-external-link">{{ email }}</a>
+        <a [href]="skypeUrl" class="cv-external-link">M'envoyer un message Skype</a>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true">Fermer</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+        <mat-icon *ngIf="icon" fxFlex="none">{{ icon }}</mat-icon>
+        <mat-icon *ngIf="svgIcon" fxFlex="none" [svgIcon]="svgIcon"></mat-icon>
+        <div fxFlex>{{ title }}</div>
+    </mat-card-title>
+    <img mat-card-image [src]="imgSrc" [alt]="imgAlt">
+    <mat-card-content>
+        <ng-content></ng-content>
+    </mat-card-content>
+</mat-card>

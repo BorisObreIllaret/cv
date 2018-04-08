@@ -1,0 +1,11 @@
+<div *ngIf="(isLoading$ | async) else sourcecodecontainer" fxLayout fxLayoutAlign="center center" class="cv-resume-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div>
+<ng-template #sourcecodecontainer>
+    <div fxLayout="column" fxLayoutAlign="start center" class="cv-source-code-container">
+        <h1>Code source</h1>
+        <ng-template ngFor let-entry [ngForOf]="(sourceCodeEntries$ | async)">
+            <cv-source-code-entry [entry]="entry"></cv-source-code-entry>
+        </ng-template>
+    </div>
+</ng-template>

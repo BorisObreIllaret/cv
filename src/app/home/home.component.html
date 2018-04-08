@@ -1,0 +1,326 @@
+<!-- <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px" class="cv-container">
+    <div fxFlexFill class="cv-header">
+        <div class="cv-header-name">Boris Obre-Illaret</div>
+        <mat-divider></mat-divider>
+        <div class="cv-header-job">Développeur sénior</div>
+        <div class="cv-header-skills" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
+            <span class="cv-header-skill">.NET</span>
+            <span class="cv-header-skill">C#</span>
+            <span class="cv-header-skill">SAP</span>
+            <span class="cv-header-skill">ABAP</span>
+            <span class="cv-header-skill">ANGULAR</span>
+        </div>
+    </div>
+    <cv-home-card fxFlexFill icon="person" imgAlt="Photo de Libourne" imgSrc="assets/img/Libourne.png" title="Qui suis-je ?">
+        <p>Bonjour ! Je me prénomme Boris et j'ai {{ yearsOld }}. Je suis né un mardi matin à
+            <a class="cv-external-link">Libourne</a>, en Gironde, dans le sud-ouest de la France.</p>
+        <p>J'ai passé mon enfance au milieu des vignes, entre
+            <a class="cv-external-link">Fronsac</a> et
+            <a class="cv-external-link">Saint-Emilion</a>.</p>
+    </cv-home-card>
+    <cv-home-card fxFlexFill svgIcon="graduate-cap" imgAlt="Photo de l'Université de Bordeaux" imgSrc="assets/img/universite-bordeaux.png"
+        title="Mes études">
+        <p>Après avoir obtenu mon BAC E dans le lycée Max Linder à Libourne, j'ai étudié 4 années à l'Université de Talence
+            dans le domaine du Génie Electrique et Informatique Industrielle. J'ai alors obtenu un Diplôme Universitaire
+            Technologique et un diplôme d'ingénieur Maître.</p>
+        <p>Les années antérieures à l'an 2000 représentèrent une grande opportunité pour les jeunes diplômés de cette époque,
+            grâce au fameux
+            <em>bug de l'An 2000</em>.</p>
+    </cv-home-card>
+    <cv-home-card fxFlexFill icon="timeline" imgAlt="" imgSrc="" title="Mon parcours">
+        <p>Arrivé en région parisienne fin 1998, j'ai été embauché dans un Société de Service Informatique spécialisée dans
+            l'AS/400 (connu maintenant sous le nom IBM System i). J'ai été formé sur l'OS/400, le language RPG et LANSA.
+            A la demande de mon futur client, le groupe Schindler France, j'ai également suivi 1 mois de formations chez
+            SAP France.</p>
+        <p>J'ai rejoint Schindler à Vélizy début 1999 sous la tutelle d'une chef de projet. J'ai d'abord effectué des développements
+            sur AS/400, pour ensuite poursuivre </p>
+    </cv-home-card>
+    <mat-card fxFlexFill>
+        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+            <mat-icon fxFlex="none">code</mat-icon>
+            <div fxFlex>.NET</div>
+        </mat-card-title>
+        <mat-card-content>
+            Expérience .NET blabla
+        </mat-card-content>
+    </mat-card>
+    <mat-card fxFlexFill>
+        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+            <mat-icon fxFlex="none">code</mat-icon>
+            <div fxFlex fxFill>SAP</div>
+        </mat-card-title>
+        <mat-card-content>
+            Expérience SAP blabla
+        </mat-card-content>
+    </mat-card>
+    <mat-card fxFlexFill>
+        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+            <mat-icon fxFlex="none">code</mat-icon>
+            <div fxFlex>Advitium</div>
+        </mat-card-title>
+        <mat-card-content>
+            Expérience SAP blabla
+        </mat-card-content>
+    </mat-card>
+</div> -->
+
+<!-- <div fxLayout="column" fxLayoutAlign="start center" class="cv-home-container">
+    <section id="section-intro">
+        <div class="cv-width-800">
+            <div class="cv-home-intro-title">
+                <span class="cv-code-variable">Boris Obre-Illaret</span>:
+                <span class="cv-code-type">Développeur sénior</span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px" class="cv-home-intro-skills">
+                <a (click)="goToFragment('section-net')">.NET</a>
+                <a (click)="goToFragment('section-sap')">SAP</a>
+                <a (click)="goToFragment('section-angular')">ANGULAR</a>
+                <a (click)="goToFragment('section-various')">...</a>
+            </div>
+        </div>
+    </section>
+    <section id="section-net">
+        <div class="cv-home-skill-chips">
+            <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="12px" class="cv-width-800">
+                <span>c#</span>
+                <span>.net standard</span>
+                <span>.net core</span>
+                <span>asp.net</span>
+            </div>
+        </div>
+        <div class="cv-width-800">
+            <div class="cv-home-skill-header">
+                <span class="cv-code-function">.net</span>()
+                &#x7B;
+            </div>
+            <div class="cv-home-skill-content">
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">skills</span>
+                    = [
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Développment et maintenance d'applications C#`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Applications client lourd : WinForm et WPF`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Applications web : WebForm, MVC, Web API`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Bases de données : Miscrosoft SQL Server, IBM DB2/400`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Frameworks ORM : ADO.NET, Entity Framework, NHibernate`</span>,
+                </div>
+                <div class="cv-home-skill-no-tab">
+                    ];
+                </div>
+                <br>
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">experience</span>
+                    =
+                    <span class="cv-code-litteral">`10 ans`</span>;
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="cv-home-skill-footer">
+                <span>&#x7D;</span>
+                <a (click)="goToFragment('section-intro')"><mat-icon>arrow_upward</mat-icon></a>
+            </div>
+        </div>
+    </section>
+    <section id="section-sap">
+        <div class="cv-home-skill-chips">
+            <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="12px" class="cv-width-800">
+                <span>abap</span>
+                <span>sapscript</span>
+                <span>smartforms</span>
+            </div>
+        </div>
+        <div class="cv-width-800">
+            <div class="cv-home-skill-header">
+                <span class="cv-code-function">sap</span>()
+                &#x7B;
+            </div>
+            <div class="cv-home-skill-content">
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">skills</span>
+                    = [
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Développment et maintenance de spécifiques en ABAP`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Développement ABAP : reports, modules de fonction, dynpros`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Développement de formulaires : SAPscript et SmartForms`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Dictionnaire ABAP : domaines, éléments de données, structures, tables, index`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Administration SAP : montée de version, archivage, jobs, Solution Manager`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Connaissances fonctionnelles de base des modules : BC, FI, SD, MM, QM`</span>,
+                </div>
+                <div class="cv-home-skill-no-tab">
+                    ];
+                </div>
+                <br>
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">experience</span>
+                    =
+                    <span class="cv-code-litteral">`18 ans`</span>;
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="cv-home-skill-footer">
+                <span>&#x7D;</span>
+                <a (click)="goToFragment('section-intro')"><mat-icon>arrow_upward</mat-icon></a>
+            </div>
+        </div>
+    </section>
+    <section id="section-angular">
+        <div class="cv-home-skill-chips">
+            <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="12px" class="cv-width-800">
+                <span>angular</span>
+                <span>typescript</span>
+                <span>rxjs</span>
+                <span>ngrx</span>
+            </div>
+        </div>
+        <div class="cv-width-800">
+            <div class="cv-home-skill-header">
+                <span class="cv-code-function">angular</span>()
+                &#x7B;
+            </div>
+            <div class="cv-home-skill-content">
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">skills</span>
+                    = [
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Développement de single-page application en Angular (2+)`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Angular Material, Clarity Design System, ng-bootstrap`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Firebase : Cloud Firestore, Authentication, Hosting`</span>,
+                </div>
+                <div class="cv-home-skill-no-tab">
+                    ];
+                </div>
+                <br>
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">experience</span>
+                    =
+                    <span class="cv-code-litteral">`1 an`</span>;
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="cv-home-skill-footer">
+                <span>&#x7D;</span>
+                <a (click)="goToFragment('section-intro')"><mat-icon>arrow_upward</mat-icon></a>
+            </div>
+        </div>
+    </section>
+    <section id="section-various">
+        <div class="cv-home-skill-chips">
+            <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="12px" class="cv-width-800">
+                <span>windows server</span>
+                <span>ad</span>
+                <span>iis</span>
+                <span>sql server</span>
+                <span>system i</span>
+            </div>
+        </div>
+        <div class="cv-width-800">
+            <div class="cv-home-skill-header">
+                () &#x3D;&#x3E; &#x7B;
+            </div>
+            <div class="cv-home-skill-content">
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">skills</span>
+                    = [
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Windows Server : administration de base, tâches planifiées, PowerShell`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Active Directory : administration de base des utilisateurs, groupes et GPO`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`IIS : administration de base des sites et des pools d'application`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`SQL Server : administration de base, tables, vues, index, procédures stockées, réplications`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`System i (AS/400) : administration de base, CL`</span>,
+                </div>
+                <div class="cv-home-skill-no-tab">
+                    ];
+                </div>
+                <br>
+                <div class="cv-home-skill-no-tab">
+                    <span class="cv-code-instruction">var</span>
+                    <span class="cv-code-variable">hobbies</span>
+                    = [
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Programmation : Xamarin, Unity 3D`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Lecture : Science Fiction, Fantasy`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Nouvelles technologies`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Jeux vidéo : jeux de rôle, jeux de stratégie, jeux de plateforme`</span>,
+                </div>
+                <div class="cv-home-skill-one-tab">
+                    <span class="cv-code-litteral">`Cuisine`</span>,
+                </div>
+                <div class="cv-home-skill-no-tab">
+                    ];
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="cv-home-skill-footer">
+                <span>&#x7D;</span>
+                <a (click)="goToFragment('section-intro')"><mat-icon>arrow_upward</mat-icon></a>
+            </div>
+        </div>
+    </section>    /////isLoading$ | async
+</div> -->
+
+<!-- <ng-template *ngIf="skills" ngFor let-skill [ngForOf]="skills$ | async">
+    {{ skill.id }}
+</ng-template> -->
+
+<div *ngIf="(isLoading$ | async) else homecontainer" fxLayout fxLayoutAlign="center center" class="cv-home-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div>
+<ng-template #homecontainer>
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="2rem" class="cv-home-container">
+        <section id="section-intro">
+            <div class="cv-home-intro-title">
+                <span class="cv-code-variable">Boris Obre-Illaret</span>
+            </div>
+            <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem" class="cv-home-intro-skills">
+                <a *ngFor="let skill of (skills$ | async)" (click)="goToFragment(skill.id)">{{ skill.competence.toLowerCase() }}</a>
+            </div>
+        </section>
+        <ng-template ngFor let-skill [ngForOf]="skills$ | async">
+            <cv-home-skill [skill]="skill"></cv-home-skill>
+        </ng-template>
+    </div>
+</ng-template>
