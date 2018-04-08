@@ -16,6 +16,7 @@ export class AppComponent
         iconRegistry.addSvgIcon('circle-viadeo', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/circle-viadeo.svg'));
         iconRegistry.addSvgIcon('city-buildings', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/city-buildings.svg'));
         iconRegistry.addSvgIcon('editor', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/editor.svg'));
+        iconRegistry.addSvgIcon('github', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/github.svg'));
         iconRegistry.addSvgIcon('graduate-cap', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/graduate-cap.svg'));
         iconRegistry.addSvgIcon('job', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/job.svg'));
         iconRegistry.addSvgIcon('hash', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/hash.svg'));
