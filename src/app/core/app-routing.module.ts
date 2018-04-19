@@ -10,10 +10,10 @@ import { SourceCodeComponent } from '../source-code/source-code.component';
 
 const routes: Routes =
     [
-        { path: '', component: HomeComponent  },
+        { path: '', redirectTo: '/home', pathMatch: 'full' },
         { path: 'about', component: AboutComponent },
         { path: 'contact', component: ContactComponent },
-        { path: 'home', redirectTo: '/', pathMatch: 'full'},
+        { path: 'home', component: HomeComponent },
         { path: 'resume', component: ResumeComponent },
         { path: 'source', component: SourceCodeComponent },
         { path: '**', component: NotFoundComponent },

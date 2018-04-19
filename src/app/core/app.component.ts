@@ -22,6 +22,7 @@ export class AppComponent
         iconRegistry.addSvgIcon('hash', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/hash.svg'));
         iconRegistry.addSvgIcon('hat', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/hat.svg'));
         iconRegistry.addSvgIcon('linkedin', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/linkedin-logo.svg'));
+        iconRegistry.addSvgIcon('resume', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/resume.svg'));
         iconRegistry.addSvgIcon('square-linkedin', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/square-linkedin.svg'));
         iconRegistry.addSvgIcon('tie', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/tie.svg'));
         iconRegistry.addSvgIcon('viadeo', sanitizer.bypassSecurityTrustResourceUrl('assets/svg/viadeo-logo.svg'));
