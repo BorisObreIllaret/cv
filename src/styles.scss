@@ -311,6 +311,13 @@ $timeline-icon-size: 24px;
         text-align: center;
     }
 
+    .separator {
+        border-top: 1px solid $timeline-color; 
+        margin: 0 auto;
+        max-width: 1024px;
+        width: 90vw;
+    }
+
     mat-tab-group {
         margin: 0 auto;
         max-width: 1024px;

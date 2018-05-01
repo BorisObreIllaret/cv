@@ -1,11 +1,11 @@
 <mat-card>
-        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
-            <mat-icon *ngIf="entry.icon" fxFlex="none">{{ entry.icon }}</mat-icon>
-            <mat-icon *ngIf="entry.svgIcon" fxFlex="none" [svgIcon]="entry.svgIcon"></mat-icon>
-            <div fxFlex>{{ entry.title }}</div>
-        </mat-card-title>
-        <img mat-card-image [src]="entry.imgSrc" [alt]="entry.imgAlt">
-        <mat-card-content>
-            {{ entry.description }}
-        </mat-card-content>
-    </mat-card>
+    <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+        <mat-icon *ngIf="entry.icon" fxFlex="none">{{ entry.icon }}</mat-icon>
+        <mat-icon *ngIf="entry.svgIcon" fxFlex="none" [svgIcon]="entry.svgIcon"></mat-icon>
+        <div fxFlex>{{ entry.title }}</div>
+    </mat-card-title>
+    <img mat-card-image [src]="entry.imgSrc" [alt]="entry.imgAlt">
+    <mat-card-content>
+        {{ entry.description }}
+    </mat-card-content>
+</mat-card>
