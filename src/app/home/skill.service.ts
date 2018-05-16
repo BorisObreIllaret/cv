@@ -1,4 +1,5 @@
 import { Subscription, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Injectable, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
@@ -33,16 +34,13 @@ export class SkillService implements OnDestroy
             this.db
                 .collection('home', ref => ref.orderBy('order'))
                 .snapshotChanges()
-                .map(docArray => docArray.map(doc => {
+                .pipe(map(docArray => docArray.map(doc => {
+                    const skill = doc.payload.doc.data() as Skill;
                     return new Skill({
                         id: doc.payload.doc.id,
-                        competence: doc.payload.doc.data().competence,
-                        experience: doc.payload.doc.data().experience,
-                        chips: doc.payload.doc.data().chips,
-                        skills: doc.payload.doc.data().skills,
-                        order: doc.payload.doc.data().order,
+                        ...skill
                     });
-                }))
+                })))
                 .subscribe(
                     (skills: Skill[]) => {
                         this.store.dispatch(new SkillActions.SetSkills(skills));

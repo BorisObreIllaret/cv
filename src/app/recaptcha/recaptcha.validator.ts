@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { InjectionToken, Injectable, Inject } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
@@ -26,10 +27,10 @@ export class RecaptchaAsyncValidator
         return (_: AbstractControl) =>
         {
             return this.http.get<RecaptchaVerifyResponse>(this.url, { params: { token } })
-                            .map(result => {
+                            .pipe(map(result => {
                                 if (!result.success) return { tokenInvalid: true };
                                 else return null;
-                            });
+                            }));
         }
     }
 }

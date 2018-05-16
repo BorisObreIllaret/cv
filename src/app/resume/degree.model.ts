@@ -1,3 +1,5 @@
+import { Timestamp } from "@firebase/firestore-types";
+
 /**
  * Degree.
  */
@@ -36,12 +38,12 @@ class Degree
     /**
      * Degree start date.
      */
-    startDate: Date;
+    startDate: Timestamp;
 
     /**
      * Degree end date.
      */
-    endDate: Date;
+    endDate: Timestamp;
 
     /**
      * Number allowing to sort the degree.
@@ -100,12 +102,12 @@ namespace Degree
         /**
          * Degree start date.
          */
-        startDate?: Date;
+        startDate?: Timestamp;
 
         /**
          * Degree end date.
          */
-        endDate?: Date;
+        endDate?: Timestamp;
 
         /**
          * Number allowing to sort the degree.

@@ -1,4 +1,5 @@
 import { Subscription, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Injectable, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
@@ -46,11 +47,11 @@ export class SourceCodeService implements OnDestroy
             this.db
                 .collection('source-code', ref => ref.orderBy('order'))
                 .snapshotChanges()
-                .map(docArray => docArray.map(doc => {
+                .pipe(map(docArray => docArray.map(doc => {
                     const id = doc.payload.doc.id;
                     const data = doc.payload.doc.data();
                     return new SourceCodeEntry({ id, ...data });
-                }))
+                })))
                 .subscribe(
                     (sourceCodeEntries: SourceCodeEntry[]) => {
                         this.store.dispatch(new SourceCodeActions.SetSourceCodeEntries(sourceCodeEntries));

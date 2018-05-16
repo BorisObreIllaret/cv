@@ -1,4 +1,5 @@
 import Assignment from './assignment.model';
+import { Timestamp } from '@firebase/firestore-types';
 
 /**
  * Job.
@@ -23,12 +24,12 @@ class Job implements Job.JobModel
     /**
      * Job start date.
      */
-    startDate: Date;
+    startDate: Timestamp;
 
     /**
      * Job end date.
      */
-    endDate?: Date;
+    endDate?: Timestamp;
 
     /**
      * Job company.
@@ -92,12 +93,12 @@ namespace Job
         /**
          * Job start date.
          */
-        startDate?: Date;
+        startDate?: Timestamp;
 
         /**
          * Job end date.
          */
-        endDate?: Date;
+        endDate?: Timestamp;
 
         /**
          * Job company.

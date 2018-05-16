@@ -25,10 +25,10 @@ export class ResumeJobComponent implements OnInit
     ngOnInit(): void
     {
         moment.locale('fr');
-        const fromMoment = (this.job.startDate) ? moment(this.job.startDate) : moment();
+        const fromMoment = (this.job.startDate) ? moment(this.job.startDate.toDate()) : moment();
         const jobStart = (this.job.startDate) ? `${fromMoment.format('MMMM')} ${fromMoment.format('YYYY')}` : `aujourd'hui`;
 
-        const toMoment = (this.job.endDate) ? moment(this.job.endDate) : moment();
+        const toMoment = (this.job.endDate) ? moment(this.job.endDate.toDate()) : moment();
         const jobEnd = (this.job.endDate) ? `${toMoment.format('MMMM')} ${toMoment.format('YYYY')}` : `aujourd'hui`;
 
         const durationMoment = moment.duration(toMoment.diff(fromMoment));

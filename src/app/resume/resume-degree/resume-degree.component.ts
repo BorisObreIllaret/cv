@@ -21,10 +21,10 @@ export class ResumeDegreeComponent implements OnInit
 
     ngOnInit()
     {
-        const fromMoment = (this.degree.startDate) ? moment(this.degree.startDate) : moment();
+        const fromMoment = (this.degree.startDate) ? moment(this.degree.startDate.toDate()) : moment();
         const degreeStart = (this.degree.startDate) ? fromMoment.format('YYYY') : `aujourd'hui`;
 
-        const toMoment = (this.degree.endDate) ? moment(this.degree.endDate) : moment();
+        const toMoment = (this.degree.endDate) ? moment(this.degree.endDate.toDate()) : moment();
         const degreeEnd = (this.degree.endDate) ? toMoment.format('YYYY') : `aujourd'hui`;
 
         this.degreeDuration = `${degreeStart} - ${degreeEnd}`;

@@ -1,4 +1,5 @@
 import { Subscription, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -56,11 +57,11 @@ export class ResumeService implements OnDestroy
             this.db
                 .collection('/resume', ref => ref.where('type', '==', 'degree').orderBy('order'))
                 .snapshotChanges()
-                .map(docArray => docArray.map(doc => {
+                .pipe(map(docArray => docArray.map(doc => {
                     const id = doc.payload.doc.id;
                     const data = doc.payload.doc.data();
                     return new Degree({ id, ...data });
-                }))
+                })))
                 .subscribe(
                     (degrees: Degree[]) => {
                         this.store.dispatch(new ResumeActions.SetDegrees(degrees));
@@ -84,11 +85,11 @@ export class ResumeService implements OnDestroy
             this.db
                 .collection('/resume', ref => ref.where('type', '==', 'hobby').orderBy('order'))
                 .snapshotChanges()
-                .map(docArray => docArray.map(doc => {
+                .pipe(map(docArray => docArray.map(doc => {
                     const id = doc.payload.doc.id;
                     const data = doc.payload.doc.data();
                     return new Hobby({ id, ...data });
-                }))
+                })))
                 .subscribe(
                     (hobbies: Hobby[]) => {
                         this.store.dispatch(new ResumeActions.SetHobbies(hobbies));
@@ -112,11 +113,11 @@ export class ResumeService implements OnDestroy
             this.db
                 .collection('/resume', ref => ref.where('type', '==', 'job').orderBy('order'))
                 .snapshotChanges()
-                .map(docArray => docArray.map(doc => {
+                .pipe(map(docArray => docArray.map(doc => {
                     const id = doc.payload.doc.id;
                     const data = doc.payload.doc.data();
                     return new Job({ id, ...data });
-                }))
+                })))
                 .subscribe(
                     (jobs: Job[]) => {
                         this.store.dispatch(new ResumeActions.SetJobs(jobs));
@@ -178,12 +179,12 @@ export class ResumeService implements OnDestroy
         return this.db
                    .collection('/resume', ref => ref.where('type', '==', 'job').orderBy('order'))
                    .snapshotChanges()
-                   .map(docArray => docArray.map(doc => {
+                   .pipe(map(docArray => docArray.map(doc => {
                        const id = doc.payload.doc.id;
                        const data = doc.payload.doc.data();
                        const job = new Job({ id, ...data });
                        return job;
-                   }));
+                   })));
     }
 
     /**
@@ -200,12 +201,12 @@ export class ResumeService implements OnDestroy
         return this.db
                    .collection(`/resume/${jobId}/assignments`, ref => ref.orderBy('order'))
                    .snapshotChanges()
-                   .map(docArray => docArray.map(doc => {
+                   .pipe(map(docArray => docArray.map(doc => {
                        const id = doc.payload.doc.id;
                        const data = doc.payload.doc.data();
                        const assignment = new Assignment({ id, jobId, ...data });
                        return assignment;
-                   }));
+                   })));
     }
 
     /**
@@ -219,12 +220,12 @@ export class ResumeService implements OnDestroy
         return this.db
                    .collection('/resume', ref => ref.where('type', '==', 'degree').orderBy('order'))
                    .snapshotChanges()
-                   .map(docArray => docArray.map(doc => {
+                   .pipe(map(docArray => docArray.map(doc => {
                        const id = doc.payload.doc.id;
                        const data = doc.payload.doc.data();
                        const degree = new Degree({ id, ...data });
                        return degree;
-                   }));
+                   })));
     }
 
     /**
@@ -238,11 +239,11 @@ export class ResumeService implements OnDestroy
         return this.db
                    .collection('/resume', ref => ref.where('type', '==', 'hobby').orderBy('order'))
                    .snapshotChanges()
-                   .map(docArray => docArray.map(doc => {
+                   .pipe(map(docArray => docArray.map(doc => {
                     const id = doc.payload.doc.id;
                     const data = doc.payload.doc.data();
                     const hobby = new Hobby({ id, ...data });
                     return hobby;
-                }));
+                })));
     }
 }
