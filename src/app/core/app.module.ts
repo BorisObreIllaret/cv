@@ -32,6 +32,7 @@ import { SidenavItemComponent } from './navigation/sidenav-item/sidenav-item.com
 
 import { AboutService } from '../about/about.service';
 import { ContactService } from '../contact/contact.service';
+import { HtmlHeaderService } from './html-header.service';
 import { NavigationService } from './navigation/navigation.service';
 import { ResumeService } from '../resume/resume.service';
 import { SkillService } from '../home/skill.service';
@@ -75,6 +76,7 @@ import { UIService } from '../shared/ui.service';
     [
         AboutService,
         ContactService,
+        HtmlHeaderService,
         NavigationService,
         ResumeService,
         SkillService,

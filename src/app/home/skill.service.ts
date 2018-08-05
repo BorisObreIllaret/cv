@@ -12,7 +12,9 @@ import * as fromRoot from '../core/app.reducers';
 import * as SkillActions from './skill.actions';
 import * as UIActions from '../shared/ui.actions';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class SkillService implements OnDestroy
 {
     private firebaseSubscription: Subscription;

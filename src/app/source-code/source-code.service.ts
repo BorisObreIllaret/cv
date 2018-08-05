@@ -11,7 +11,9 @@ import * as SourceCodeActions from './source-code.actions';
 import * as UIActions from '../shared/ui.actions';
 import { SourceCodeEntry } from './source-code-entry.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class SourceCodeService implements OnDestroy
 {
     private firebaseSubscription: Subscription;

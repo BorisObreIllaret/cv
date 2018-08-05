@@ -11,7 +11,9 @@ import * as AboutActions from './about.actions';
 import * as UIActions from '../shared/ui.actions';
 import { AboutEntry } from './about-entry.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AboutService implements OnDestroy
 {
     private firebaseSubscription: Subscription;

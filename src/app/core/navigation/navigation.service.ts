@@ -21,11 +21,13 @@ import { NavigationItem } from './navigation-item.model';
  * `fetchNavigationItems` puts navigation items to NgRx store.
  * `subscribeToNavigationItems` allows to track any change of state of navigation items.
  */
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class NavigationService implements OnDestroy
 {
     private readonly navItems: NavigationItem[] = [
-        { name: 'home', icon: 'home', label: 'ACCUEIL', hint: 'Page d\'accueil', routerLink: '/home', isActive: true },
+        { name: 'home', icon: 'home', label: 'ACCUEIL', hint: 'Page d\'accueil', routerLink: '/', isActive: true },
         { name: 'resume', icon: 'description', label: 'CV', hint: 'Mon CV', routerLink: '/resume', isActive: false },
         { name: 'contact', icon: 'contact_mail', label: 'CONTACT', hint: 'Me contacter', routerLink: '/contact', isActive: false },
         { name: 'source', icon: 'code', label: 'CODE SOURCE', hint: 'Code source de ce site', routerLink: '/source', isActive: false },
@@ -91,9 +93,12 @@ export class NavigationService implements OnDestroy
      */
     private onRouterNavigationEnd(event: NavigationEnd): void
     {
+        console.log('onRouterNavigationEnd', event);
+        
         if (this.navItems.some(ni => event.url.startsWith(ni.routerLink)))
         {
-            const navigationItemName = this.navItems.find(ni => event.url.startsWith(ni.routerLink)).name;
+            const navigationItemName = this.navItems.find(ni => event.url === ni.routerLink).name;
+            console.log('navigationItemName', navigationItemName);
             this.store.dispatch(new navigationActions.ActivateNavigationItem(navigationItemName));
         }
 

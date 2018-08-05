@@ -16,7 +16,9 @@ export interface RecaptchaVerifyResponse
     data?: any;
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class RecaptchaAsyncValidator
 {
     constructor(private http: HttpClient,

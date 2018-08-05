@@ -7,7 +7,9 @@ import { Store } from "@ngrx/store";
 import * as fromRoot from '../core/app.reducers';
 import * as UIActions from './ui.actions';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class UIService
 {
     constructor(private snackBar: MatSnackBar,

@@ -16,7 +16,9 @@ import * as fromRoot from '../core/app.reducers';
 import * as ResumeActions from './resume.actions';
 import * as UIActions from '../shared/ui.actions';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ResumeService implements OnDestroy
 {
     private degreesFirebaseSubscription: Subscription;

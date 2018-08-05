@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RecaptchaApiResponse } from './recaptcha.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ContactService
 {
     constructor(private http: HttpClient) { }

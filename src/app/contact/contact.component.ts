@@ -1,15 +1,16 @@
-import { Subscription, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { RecaptchaComponent } from 'ng-recaptcha';
 
-import { UIService } from '../shared/ui.service';
-import { ContactService } from './contact.service';
-import { RecaptchaApiResponse } from './recaptcha.model';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
+import { ContactService } from './contact.service';
+import { HtmlHeaderService } from '../core/html-header.service';
+import { RecaptchaApiResponse } from './recaptcha.model';
+import { UIService } from '../shared/ui.service';
 
 @Component({
     selector: 'cv-contact',
@@ -18,19 +19,26 @@ import { ContactDialogComponent } from './contact-dialog/contact-dialog.componen
 })
 export class ContactComponent implements OnInit
 {
+    private readonly COMPONENT_TITLE = `Boris Obre-Illaret : Contact`;
+    private readonly COMPONENT_DESCRIPTION = `Contactez-moi via LinkedIn, Viadeo, Email ou Skype.`;
+    private readonly COMPONENT_KEYWORDS = `contact, boris, obre-illaret, linkedin, viadeo, email, skype`;
+    
     isLoading$: Observable<boolean>;
     isButtonDisabled: boolean = true;
 
     private recaptchaToken: string;
     @ViewChild(RecaptchaComponent) recaptchaRef: RecaptchaComponent;
     
-    constructor(private uiService: UIService,
+    constructor(private htmlHeader: HtmlHeaderService,
+                private uiService: UIService,
                 private contactService: ContactService,
                 public dialog: MatDialog,
                 public snackBar: MatSnackBar) { }
 
     ngOnInit()
     {
+        this.htmlHeader.setHeaderTags(this.COMPONENT_TITLE, this.COMPONENT_DESCRIPTION, this.COMPONENT_KEYWORDS);
+        
         this.isLoading$ = this.uiService.storeSelectIsLoading();
         this.isButtonDisabled = true;
     }
