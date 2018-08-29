@@ -4,8 +4,10 @@
 <ng-template #homecontainer>
     <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="2rem" class="cv-home-container">
         <section id="section-intro">
-            <div class="cv-home-intro-title">
-                <span class="cv-code-variable">Boris Obre-Illaret</span>
+            <div class="cv-home-intro-title" fxLayout="column" fxLayoutAlign="start center">
+                <div class="cv-code-variable">Boris Obre-Illaret</div>
+                <div>•</div>
+                <div class="cv-code-type">Développeur sénior .NET</div>
             </div>
             <div fxLayout.lt-sm="column" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1rem" class="cv-home-intro-skills">
                 <a *ngFor="let skill of (skills$ | async)" (click)="goToFragment(skill.id)">{{ skill.competence.toLowerCase() }}</a>

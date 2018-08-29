@@ -126,6 +126,7 @@ export class HtmlHeaderService
             let link: HTMLLinkElement = this.doc.createElement('link');
             link.rel = 'canonical';
             link.href = url;
+            this.doc.head.appendChild(link);
         }
     }
 

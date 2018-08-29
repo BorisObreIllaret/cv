@@ -177,6 +177,10 @@ $cv-icon-size: 1.5rem;
     .cv-home-intro-title {
         margin: 0 0 2rem 0;
         font-size: 2rem;
+
+        div:first-child {
+            font-weight: bold;
+        }
     }
 
     .cv-home-intro-skills {
@@ -369,12 +373,17 @@ $timeline-icon-size: 24px;
     }
 
     mat-card-title {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         text-align: center;
 
         .cv-resume-event-title {
             font-weight: bold;
         }
+    }
+
+    mat-card-subtitle {
+        font-size: 1.2rem;
+        text-align: center;
     }
 
     mat-card-content {
