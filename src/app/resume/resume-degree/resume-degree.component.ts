@@ -1,5 +1,3 @@
-import { Observable } from 'rxjs/Observable';
-
 import { Component, OnInit, Input } from '@angular/core';
 
 import Degree from '../degree.model';

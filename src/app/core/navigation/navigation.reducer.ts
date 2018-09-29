@@ -1,5 +1,3 @@
-import { ActionReducer } from '@ngrx/store';
-
 import { NavigationActions, NavigationActionTypes } from './navigation.actions';
 
 import { NavigationItem } from './navigation-item.model';
@@ -34,8 +32,7 @@ const initialState: State =
  * @returns {State}
  * New navigation state according to action.
  */
-// export const navigationReducer: ActionReducer<State, NavigationActions> = (state: State = initialState, action: NavigationActions) =>
-export function navigationReducer(state: State = initialState, action: NavigationActions)
+export const navigationReducer = (state: State = initialState, action: NavigationActions): State =>
 {
     /**
      * Set 'isActive' property to false for all navigation items.
@@ -43,7 +40,7 @@ export function navigationReducer(state: State = initialState, action: Navigatio
      * @param {NavigationItem[]} navItems
      *  List of navigation items.
      */
-    function desactivateAllNavigationItems(navItems: NavigationItem[]): void
+    const desactivateAllNavigationItems = (navItems: NavigationItem[]): void =>
     {
         if (navItems.some(ni => ni.isActive === true))
         {
@@ -60,7 +57,7 @@ export function navigationReducer(state: State = initialState, action: Navigatio
      * @param {string} name
      *  Name of the navigation item to modify.
      */
-    function activateNavigationItem(navItems: NavigationItem[], name: string): void
+    const activateNavigationItem = (navItems: NavigationItem[], name: string): void =>
     {
         if (navItems.some(ni => ni.name === name))
         {
@@ -78,7 +75,7 @@ export function navigationReducer(state: State = initialState, action: Navigatio
 
         case NavigationActionTypes.ActivateNavigationItem:
             {
-                let navItems = [...state.navigationItems];
+                const navItems = [...state.navigationItems];
                 desactivateAllNavigationItems(navItems);
                 activateNavigationItem(navItems, action.payload);
                 return { ...state, navigationItems: navItems };
@@ -86,7 +83,7 @@ export function navigationReducer(state: State = initialState, action: Navigatio
 
         case NavigationActionTypes.DeactivateAllNavigationItems:
             {
-                let navItems = [...state.navigationItems];
+                const navItems = [...state.navigationItems];
                 desactivateAllNavigationItems(navItems);
                 return { ...state, navigationItems: navItems };
             }
@@ -108,7 +105,7 @@ export function navigationReducer(state: State = initialState, action: Navigatio
  * @returns {boolean}
  *  Value of 'showSideNav'.
  */
-export const getShowSideNav = (state: State) => state.showSideNav;
+export const getShowSideNav = (state: State): boolean => state.showSideNav;
 
 /**
  * Return the value of 'navigationItems' from the given navigation state.
@@ -119,4 +116,4 @@ export const getShowSideNav = (state: State) => state.showSideNav;
  * @returns {NavigationItem[]}
  *  Value of 'navigationItems'
  */
-export const getNavigationItems = (state: State) => state.navigationItems;
+export const getNavigationItems = (state: State): NavigationItem[] => state.navigationItems;

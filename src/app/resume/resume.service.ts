@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import Assignment from './assignment.model';
 import Degree from './degree.model';

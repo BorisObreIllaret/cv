@@ -30,7 +30,7 @@ const initialState: State =
  * @returns {State}
  * New about state according to action.
  */
-export function aboutReducer(state: State = initialState, action: AboutActions)
+export const aboutReducer = (state: State = initialState, action: AboutActions): State =>
 {
     switch (action.type)
     {
@@ -51,4 +51,4 @@ export function aboutReducer(state: State = initialState, action: AboutActions)
  * @returns {AboutEntry[]}
  * Current value of about entries.
  */
-export const getAboutEntries = (state: State) => state.aboutEntries;
+export const getAboutEntries = (state: State):AboutEntry[] => state.aboutEntries;

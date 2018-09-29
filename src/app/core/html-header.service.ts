@@ -73,7 +73,7 @@ export class HtmlHeaderService
     /**
      * Remove meta tag from the header of the current HTML document.
      */
-    removeTagElement = (meta: HTMLMetaElement): void => this.meta.removeTagElement(meta);
+    removeMetaTagElement = (meta: HTMLMetaElement): void => this.meta.removeTagElement(meta);
 
     /**
      * Add a new link to the header of the current HTML document.

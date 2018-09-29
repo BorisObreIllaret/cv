@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 
 import { Injectable, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Skill } from './skill.model';
 

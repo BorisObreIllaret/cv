@@ -39,6 +39,5 @@ export class AboutComponent implements OnInit
 
         this.isLoading$ = this.uiService.storeSelectIsLoading();
         this.aboutEntries$ = this.aboutService.selectAboutEntriesFromStore;
-        this.aboutService.getAboutEntriesFromDb();
     }
 }

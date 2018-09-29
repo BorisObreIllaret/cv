@@ -93,12 +93,9 @@ export class NavigationService implements OnDestroy
      */
     private onRouterNavigationEnd(event: NavigationEnd): void
     {
-        console.log('onRouterNavigationEnd', event);
-        
         if (this.navItems.some(ni => event.url.startsWith(ni.routerLink)))
         {
             const navigationItemName = this.navItems.find(ni => event.url === ni.routerLink).name;
-            console.log('navigationItemName', navigationItemName);
             this.store.dispatch(new navigationActions.ActivateNavigationItem(navigationItemName));
         }
 
