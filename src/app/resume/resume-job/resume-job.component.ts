@@ -1,12 +1,16 @@
 import { Observable } from 'rxjs';
 
 import { Component, OnInit, Input } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 
-import { ResumeService } from '../resume.service';
 import Assignment from '../assignment.model';
 import Job from '../job.model';
 
 import * as moment from 'moment';
+import { AppState } from '../../core/app.reducers';
+import { selectJobAssignments } from '../resume.selectors';
+import { tap } from 'rxjs/operators';
+import { JobAssignmentsRequested } from '../resume.actions';
 
 @Component({
     selector: 'cv-resume-job',
@@ -20,7 +24,7 @@ export class ResumeJobComponent implements OnInit
     jobDuration: string = '';
     assignments$: Observable<Assignment[]>;
 
-    constructor(private jobService: ResumeService) {}
+    constructor(private store: Store<AppState>) {}
 
     ngOnInit(): void
     {
@@ -48,9 +52,14 @@ export class ResumeJobComponent implements OnInit
                 break;
         }
 
-        // this.assignments$ = this.jobService.storeSelectAssignments();
-        // this.jobService.getAssignmentsFromDb(this.job.id);
-
-        this.assignments$ = this.jobService.getAssignmentsSnapshotChanges(this.job.id);
+        this.assignments$ = this.store.pipe(
+            select(selectJobAssignments(this.job.id)),
+            tap(assignments => {
+                if (assignments.length === 0)
+                {
+                    this.store.dispatch(new JobAssignmentsRequested({id: this.job.id}));
+                }
+            })
+        );
     }
 }

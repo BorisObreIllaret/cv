@@ -6,26 +6,25 @@ import { Skill } from './skill.model';
  */
 export enum SkillActionsTypes
 {
-    SetSkills = '[Skill] Set Skills',
+    SkillsCleared = '[Skill Effect] Skills cleared',
+    SkillsSet = '[Skill Effect] Skills set',
 }
 
-/**
- * Class for 'SetSkills' action.
- */
-export class SetSkills implements Action
+export class SkillsCleared implements Action
 {
-    readonly type = SkillActionsTypes.SetSkills;
+    readonly type = SkillActionsTypes.SkillsCleared;
+}
 
-    /**
-     * @constructor
-     * 
-     * @param {Skill[]} payload 
-     * Array of skills.
-     */
-    constructor(public payload: Skill[]) { }
+export class SkillsSet implements Action
+{
+    readonly type = SkillActionsTypes.SkillsSet;
+
+    constructor(public payload: {entries: Skill[]}) { }
 }
 
 /**
- * Type of all available skill actions.
+ * Type of all available actions.
  */
-export type SkillActions = SetSkills;
+export type SkillActions = 
+SkillsCleared
+| SkillsSet;

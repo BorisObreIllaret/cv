@@ -1,52 +1,51 @@
-import { ActionReducer } from '@ngrx/store';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Skill } from './skill.model';
 import { SkillActions, SkillActionsTypes } from './skill.actions';
 
 /**
  * Inteface for skill state.
  */
-export interface State
-{
-    skills: Skill[],
-}
+export interface SkillState extends EntityState<Skill> { }
+
+const adapter: EntityAdapter<Skill> = createEntityAdapter<Skill>();
+
 
 /**
  * Default values for skill state.
  */
-const initialState: State =
-{
-    skills: [],
-}
+const initialState: SkillState = adapter.getInitialState();
 
 /** 
  * Reducer for skill.
  * 
- * @param {State} state
- * Current skill state.
+ * @param {SkillState} state
+ * Current state.
  * 
- * @param {SkillAction} action
- * Skill action.
+ * @param {SkillActions} action
+ * Action to apply.
  * 
- * @returns {State}
- * New skill state according to action.
+ * @returns {SkillState}
+ * New state according to action.
  */
 // export const skillReducer: ActionReducer<State, SkillActions> = (state: State = initialState, action: SkillActions) =>
-export function skillReducer(state: State = initialState, action: SkillActions)
+export function skillReducer(state: SkillState = initialState, action: SkillActions): SkillState
 {
     switch (action.type)
     {
-        case SkillActionsTypes.SetSkills:
-            return { ...state, skills: action.payload };
+        case SkillActionsTypes.SkillsCleared:
+            return adapter.removeAll(state);
+
+        case SkillActionsTypes.SkillsSet:
+            return adapter.addAll(action.payload.entries, state);
 
         default:
-            return { ...state };        
+            return state;
     }
 }
 
-/**
- * Returns the value of 'skills' from the given skill state.
- * 
- * @param {State} state 
- * Skill state.
- */
-export const getSkills = (state: State) => state.skills;
+export const {
+    selectAll,
+    selectEntities,
+    selectIds,
+    selectTotal
+} = adapter.getSelectors();

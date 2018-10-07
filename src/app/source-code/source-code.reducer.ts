@@ -1,54 +1,51 @@
 import { ActionReducer } from '@ngrx/store';
 import { SourceCodeEntry } from './source-code-entry.model';
 import { SourceCodeActions, SourceCodeActionsTypes } from './source-code.actions';
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 /**
  * Interface for source code state.
  */
-export interface State
-{
-    sourceCodeEntries: SourceCodeEntry[],
-}
+export interface SourceCodeState extends EntityState<SourceCodeEntry> { }
+
+
+const adapter: EntityAdapter<SourceCodeEntry> = createEntityAdapter<SourceCodeEntry>();
 
 /**
  * Default value for source code state.
  */
-const initialState: State =
-{
-    sourceCodeEntries: [],
-}
+const initialState: SourceCodeState = adapter.getInitialState();
 
 /**
  * Reducer for source code.
  * 
- * @param {State} state
- * Current source code state.
+ * @param {SourceCodeState} state
+ * Current state.
  * 
  * @param {SourceCodeActions} action
- * Source code action.
+ * Action to apply.
  * 
- * @returns {State}
- * New source code state according to action.
+ * @returns {SourceCodeState}
+ * New state according to action.
  */
-export function sourceCodeReducer(state: State = initialState, action: SourceCodeActions)
+export function sourceCodeReducer(state: SourceCodeState = initialState, action: SourceCodeActions): SourceCodeState
 {
     switch (action.type)
     {
-        case SourceCodeActionsTypes.SetSourceCodeEntries:
-            return { ...state, sourceCodeEntries: action.payload };
+        case SourceCodeActionsTypes.SourceCodeEntriesCleared:
+            return adapter.removeAll(state);
+        
+        case SourceCodeActionsTypes.SourceCodeEntriesSet:
+            return adapter.addAll(action.payload.entries, state);        
 
         default:
-            return { ...state };        
+            return state;        
     }
 }
 
-/**
- * Returns the value of 'sourceCodeEntries' from the given source code state.
- * 
- * @param {State} state
- * Source code state.
- * 
- * @returns {SourceCodeEntry[]}
- * Current value of source code entries.
- */
-export const getSourceCodeEntries = (state: State) => state.sourceCodeEntries;
+export const {
+    selectAll,
+    selectEntities,
+    selectIds,
+    selectTotal
+} = adapter.getSelectors();

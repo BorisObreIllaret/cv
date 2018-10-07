@@ -3,11 +3,13 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 import { AboutEntry } from './about-entry.model';
-import { AboutService } from './about.service';
 import { HtmlHeaderService } from '../core/html-header.service';
 import { UIService } from '../shared/ui.service';
 
 import * as moment from 'moment';
+import { AppState } from '../core/app.reducers';
+import { Store, select } from '@ngrx/store';
+import { selectAllAboutEntries } from './about.selectors';
 
 @Component({
     selector: 'cv-about',
@@ -25,7 +27,7 @@ export class AboutComponent implements OnInit
     aboutEntries$: Observable<AboutEntry[]>;
     
     constructor(private htmlHeader: HtmlHeaderService,
-                private aboutService: AboutService,
+                private store: Store<AppState>,
                 private uiService: UIService) { }
 
     ngOnInit(): void
@@ -38,6 +40,6 @@ export class AboutComponent implements OnInit
         this.yearsOld = `${duration.years()} ans et ${duration.months()} mois`;
 
         this.isLoading$ = this.uiService.storeSelectIsLoading();
-        this.aboutEntries$ = this.aboutService.selectAboutEntriesFromStore;
+        this.aboutEntries$ = this.store.pipe(select(selectAllAboutEntries));
     }
 }

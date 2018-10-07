@@ -36,7 +36,7 @@ export class NavigationService implements OnDestroy
 
     private routerSubscription: Subscription;
 
-    constructor(private store: Store<fromRoot.State>,
+    constructor(private store: Store<fromRoot.AppState>,
                 private router: Router)
     {
         // Subscribe to router events, keep only 'NavigationEnd' event and call method 'onRouterNavigationEnd' when this event is triggered

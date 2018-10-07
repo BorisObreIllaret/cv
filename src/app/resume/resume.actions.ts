@@ -10,74 +10,75 @@ import Job from './job.model';
  */
 export enum ResumeActionsTypes
 {
-    SetAssignments = '[Resume] Set Assignments',
-    SetDegrees = '[Resume] Set Degrees',
-    SetHobbies = '[Resume] Set Hobbies',
-    SetJobs = '[Resume] Set Jobs',
+    DegreesCleared = '[Resume Effect] Degrees cleared',
+    DegreesSet = '[Resume Effect] Degrees set',
+    HobbiesCleared = '[Resume Effect] Hobbies cleared',
+    HobbiesSet = '[Resume Effect] Hobbies set',
+    JobsCleared = '[Resume Effect] Jobs cleared',
+    JobsSet = '[Resume Effect] Jobs set',
+    JobAssignmentsRequested = '[Resume Job Component] Job assignments requested',
+    JobAssignmentsSet = '[Resume Effect] Job assignments set',
 }
 
-/**
- * Class for 'SetAssignments' action.
- */
-export class SetAssignments implements Action
+export class DegreesCleared implements Action
 {
-    readonly type = ResumeActionsTypes.SetAssignments;
-
-    /**
-     * 
-     * @param {Assignment[]} payload
-     * Array of assignments.
-     */
-    constructor(public payload: Assignment[]) {}
-
+    readonly type = ResumeActionsTypes.DegreesCleared;
 }
 
-/**
- * Class for 'SetDegrees' action.
- */
-export class SetDegrees implements Action
+export class DegreesSet implements Action
 {
-    readonly type = ResumeActionsTypes.SetDegrees;
+    readonly type = ResumeActionsTypes.DegreesSet;
 
-    /**
-     * 
-     * @param {Degree[]} payload
-     * Array of degrees.
-     */
-    constructor(public payload: Degree[]) {}
+    constructor(public payload: {entries: Degree[]}) {}
 }
 
-/**
- * Class for 'SetHobbies' action.
- */
-export class SetHobbies implements Action
+export class HobbiesCleared implements Action
 {
-    readonly type = ResumeActionsTypes.SetHobbies;
-
-    /**
-     * 
-     * @param {Hobby[]} payload
-     * Array of hobbies.
-     */
-    constructor(public payload: Hobby[]) {}
+    readonly type = ResumeActionsTypes.HobbiesCleared;
 }
 
-/**
- * Class for 'SetJobs' action.
- */
-export class SetJobs implements Action
+export class HobbiesSet implements Action
 {
-    readonly type = ResumeActionsTypes.SetJobs;
+    readonly type = ResumeActionsTypes.HobbiesSet;
+    
+    constructor(public payload: {entries: Hobby[]}) {}
+}
 
-    /**
-     * 
-     * @param {Jobs[]} payload
-     * Array of jobs.
-     */
-    constructor(public payload: Job[]) {}
+export class JobsCleared implements Action
+{
+    readonly type = ResumeActionsTypes.JobsCleared;
+}
+
+export class JobsSet implements Action
+{
+    readonly type = ResumeActionsTypes.JobsSet;
+    
+    constructor(public payload: {entries: Job[]}) {}
+}
+
+export class JobAssignmentsRequested implements Action
+{
+    readonly type = ResumeActionsTypes.JobAssignmentsRequested;
+
+    constructor(public payload: {id: string}) {}
+}
+
+export class JobAssignmentsSet implements Action
+{
+    readonly type = ResumeActionsTypes.JobAssignmentsSet;
+
+    constructor(public payload: {entries: Assignment[]}) {}
 }
 
 /**
  * Type of all available resume actions.
  */
-export type ResumeActions = SetAssignments | SetDegrees | SetHobbies | SetJobs;
+export type ResumeActions =
+DegreesCleared
+| DegreesSet
+| HobbiesCleared
+| HobbiesSet
+| JobsCleared
+| JobsSet
+| JobAssignmentsRequested
+| JobAssignmentsSet;

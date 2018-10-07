@@ -6,26 +6,48 @@ import { AboutEntry } from './about-entry.model';
  */
 export enum AboutActionsTypes
 {
-    SetAboutEntries = '[About] Set About Entries',
+    AboutEntriesCleared = '[About Effect] About entries cleared',
+    AboutEntriesSet = '[About Effect] About entries set',
+    AboutEntryAdded = '[About Effect] About entry added',
+    AboutEntryModified = '[About Effect] About entry modified',
+    AboutEntryRemoved = '[About Effect] About entry removed',
 }
 
-/**
- * Class for 'SetAboutEntries' action.
- */
-export class SetAboutEntries implements Action
+export class AboutEntriesCleared implements Action
 {
-    readonly type = AboutActionsTypes.SetAboutEntries;
+    readonly type = AboutActionsTypes.AboutEntriesCleared;
+}
 
-        /**
-     * @constructor
-     * 
-     * @param {AboutEntry[]} payload 
-     * Array of about entries.
-     */
-    constructor(public payload: AboutEntry[]) { }
+export class AboutEntriesSet implements Action
+{
+    readonly type = AboutActionsTypes.AboutEntriesSet;
+    constructor(public payload: {entries: AboutEntry[]}) { }
+}
+
+export class AboutEntryAdded implements Action
+{
+    readonly type = AboutActionsTypes.AboutEntryAdded;
+    constructor(public payload: {entry: AboutEntry}) { }
+}
+
+export class AboutEntryModified implements Action
+{
+    readonly type = AboutActionsTypes.AboutEntryModified;
+    constructor(public payload: {id: string, entry: AboutEntry}) { }
+}
+
+export class AboutEntryRemoved implements Action
+{
+    readonly type = AboutActionsTypes.AboutEntryRemoved;
+    constructor(public payload: {id: string}) { }
 }
 
 /**
- * Type of all available about actions.
+ * Type of all available actions.
  */
-export type AboutActions = SetAboutEntries;
+export type AboutActions =
+AboutEntriesCleared
+| AboutEntriesSet
+| AboutEntryAdded
+| AboutEntryModified
+| AboutEntryRemoved;

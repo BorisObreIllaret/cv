@@ -12,7 +12,7 @@ import * as fromRoot from '../core/app.reducers';
 export class UIService
 {
     constructor(private snackBar: MatSnackBar,
-                private store: Store<fromRoot.State>) { }
+                private store: Store<fromRoot.AppState>) { }
 
     storeSelectIsLoading = (): Observable<boolean> => this.store.select(fromRoot.getIsLoading);
 

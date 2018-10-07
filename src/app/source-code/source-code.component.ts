@@ -1,11 +1,13 @@
 import { Observable } from 'rxjs';
 
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 
 import { HtmlHeaderService } from '../core/html-header.service';
 import { SourceCodeEntry } from './source-code-entry.model';
-import { SourceCodeService } from './source-code.service';
 import { UIService } from '../shared/ui.service';
+import { AppState } from '../core/app.reducers';
+import { selectAllSourceCodeEntries } from './source-code.selectors';
 
 @Component({
     selector: 'cv-source-code',
@@ -22,15 +24,15 @@ export class SourceCodeComponent implements OnInit
     sourceCodeEntries$: Observable<SourceCodeEntry[]>;
 
     constructor(private htmlHeader: HtmlHeaderService,
-                private sourceCodeService: SourceCodeService,
-                private uiService: UIService) { }
+        private store: Store<AppState>,
+        private uiService: UIService) { }
 
     ngOnInit(): void
     {
         this.htmlHeader.setHeaderTags(this.COMPONENT_TITLE, this.COMPONENT_DESCRIPTION, this.COMPONENT_KEYWORDS);
         
         this.isLoading$ = this.uiService.storeSelectIsLoading();
-        this.sourceCodeEntries$ = this.sourceCodeService.selectSourceCodeEntriesFromStore;
-        this.sourceCodeService.getSourceCodeEntriesFromDb();
+
+        this.sourceCodeEntries$ = this.store.pipe(select(selectAllSourceCodeEntries));
     }
 }

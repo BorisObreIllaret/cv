@@ -11,17 +11,15 @@ import { environment } from '../../environments/environment';
 
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
 
-import { AboutModule } from '../about/about.module';
 import { AppRoutingModule } from './app-routing.module';
-import { ContactModule } from '../contact/contact.module';
 import { HomeModule } from '../home/home.module';
 import { MaterialModule } from './material.module';
 import { PipeModule } from '../pipes/pipe.module';
-import { ResumeModule } from '../resume/resume.module';
-import { SourceCodeModule } from '../source-code/source-code.module';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './navigation/footer/footer.component';
@@ -52,13 +50,11 @@ import { UIService } from '../shared/ui.service';
 
     imports:
     [
-        AboutModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
-        ContactModule,
         FlexLayoutModule,
         FormsModule,
         HomeModule,
@@ -67,9 +63,9 @@ import { UIService } from '../shared/ui.service';
         PipeModule.forRoot(),
         ReactiveFormsModule,
         RecaptchaModule.forRoot(),
-        ResumeModule,
-        SourceCodeModule,
         StoreModule.forRoot(reducers),
+        !environment.production ? StoreDevtoolsModule.instrument() : [],
+        EffectsModule.forRoot([]),
     ],
 
     providers:

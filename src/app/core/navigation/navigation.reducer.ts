@@ -32,7 +32,7 @@ const initialState: State =
  * @returns {State}
  * New navigation state according to action.
  */
-export const navigationReducer = (state: State = initialState, action: NavigationActions): State =>
+export function navigationReducer(state: State = initialState, action: NavigationActions): State
 {
     /**
      * Set 'isActive' property to false for all navigation items.

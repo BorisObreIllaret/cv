@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { MaterialModule } from '../core/material.module';
 
 import { AboutComponent } from './about.component';
 import { AboutEntryComponent } from './about-entry/about-entry.component';
+import { aboutReducer } from './about.reducer';
+import { AboutEffects } from './about.effects';
+import { AboutRoutingModule } from './about-routing.module';
 
 @NgModule({
     imports:
@@ -14,7 +19,9 @@ import { AboutEntryComponent } from './about-entry/about-entry.component';
         CommonModule,
         FlexLayoutModule,
         MaterialModule,
-        RouterModule,
+        AboutRoutingModule,
+        StoreModule.forFeature('about', aboutReducer),
+        EffectsModule.forFeature([AboutEffects]),
     ],
 
     declarations: [

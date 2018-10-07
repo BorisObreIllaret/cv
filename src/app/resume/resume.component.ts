@@ -1,14 +1,15 @@
 import { Observable } from 'rxjs';
-
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 
 import Degree from './degree.model';
 import Job from './job.model';
 import Hobby from './hobby.model';
 
 import { HtmlHeaderService } from '../core/html-header.service';
-import { ResumeService } from './resume.service';
 import { UIService } from '../shared/ui.service';
+import { AppState } from '../core/app.reducers';
+import { selectAllDegrees, selectAllJobs, selectAllHobbies } from './resume.selectors';
 
 @Component({
     selector: 'cv-resume',
@@ -18,16 +19,16 @@ import { UIService } from '../shared/ui.service';
 export class ResumeComponent implements OnInit {
 
     private readonly COMPONENT_TITLE = `Boris Obre-Illaret : CV`;
-    private readonly COMPONENT_DESCRIPTION = `Curriculum vitæ (CV) de Boris Obre-Illaret : expérience profressionnelle, formation initiale.`;
+    private readonly COMPONENT_DESCRIPTION = `Curriculum vitæ (CV) de Boris Obre-Illaret : expérience professionnelle, formation initiale.`;
     private readonly COMPONENT_KEYWORDS = `cv, resume, curriculum, vitæ, vitae, boris, obre-illaret, expérience, professionnelle, formation, initiale`;
     
     isLoading$: Observable<boolean>;
     degrees$: Observable<Degree[]>
-    jobs$: Observable<Job[]>;
     hobbies$: Observable<Hobby[]>;
+    jobs$: Observable<Job[]>;
     
     constructor(private htmlHeader: HtmlHeaderService,
-                private resumeService: ResumeService,
+                private store: Store<AppState>,
                 private uiService: UIService) { }
 
     ngOnInit()
@@ -35,16 +36,9 @@ export class ResumeComponent implements OnInit {
         this.htmlHeader.setHeaderTags(this.COMPONENT_TITLE, this.COMPONENT_DESCRIPTION, this.COMPONENT_KEYWORDS);
         
         this.isLoading$ = this.uiService.storeSelectIsLoading();
-        this.degrees$ = this.resumeService.selectDegreesFromStore;
-        this.jobs$ = this.resumeService.selectJobsFromStore;
-        this.hobbies$ = this.resumeService.selectHobbiesFromStore;
-        this.resumeService.getDegreesFromDb();
-        this.resumeService.getHobbiesFromDb();
-        this.resumeService.getJobsFromDb();
 
-        // this.isLoading$ = this.uiService.storeSelectIsLoading();
-        // this.degrees$ = this.resumeService.getDegreesSnapshotChanges();
-        // this.jobs$ = this.resumeService.getJobsSnapshotChanges();
-        // this.hobbies$ = this.resumeService.getHobbiesSnapshotChanges();
+        this.degrees$ = this.store.pipe(select(selectAllDegrees));
+        this.hobbies$ = this.store.pipe(select(selectAllHobbies))
+        this.jobs$ = this.store.pipe(select(selectAllJobs));
     }
 }

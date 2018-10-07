@@ -6,26 +6,25 @@ import { SourceCodeEntry } from './source-code-entry.model';
  */
 export enum SourceCodeActionsTypes
 {
-    SetSourceCodeEntries = '[SourceCode] Set Source Code Entries',
+    SourceCodeEntriesCleared = '[SourceCode Effect] Source code entries cleared',
+    SourceCodeEntriesSet = '[SourceCode Effect] Source code entries set',
 }
 
-/**
- * Class for 'SetSourceCodeEntries' action.
- */
-export class SetSourceCodeEntries implements Action
+export class SourceCodeEntriesCleared implements Action
 {
-    readonly type = SourceCodeActionsTypes.SetSourceCodeEntries;
+    readonly type = SourceCodeActionsTypes.SourceCodeEntriesCleared;
+}
 
-    /**
-     * @constructor
-     * 
-     * @param {SourceCodeEntry[]} payload 
-     * Array of source code entries.
-     */
-    constructor(public payload: SourceCodeEntry[]) { }
+export class SourceCodeEntriesSet implements Action
+{
+    readonly type = SourceCodeActionsTypes.SourceCodeEntriesSet;
+
+    constructor(public payload: {entries: SourceCodeEntry[]}) { }
 }
 
 /**
- * Type of all available source code actions.
+ * Type of all available actions.
  */
-export type SourceCodeActions = SetSourceCodeEntries;
+export type SourceCodeActions = 
+SourceCodeEntriesCleared
+| SourceCodeEntriesSet;

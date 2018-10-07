@@ -1,13 +1,13 @@
 import { Subscription, Observable } from 'rxjs';
-
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { select, Store } from '@ngrx/store';
 
 import { Skill } from './skill.model';
-
 import { HtmlHeaderService } from '../core/html-header.service';
-import { SkillService } from './skill.service';
 import { UIService } from '../shared/ui.service';
+import { selectAllSkills } from './skill.selectors';
+import { AppState } from '../core/app.reducers';
 
 @Component({
     selector: 'cv-home',
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy
 
     constructor(private htmlHeader: HtmlHeaderService,
                 private route: ActivatedRoute,
-                private skillsService: SkillService,
+                private store: Store<AppState>,
                 private uiService: UIService) { }
 
     ngOnInit(): void
@@ -52,8 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy
 
         this.isLoading$ = this.uiService.storeSelectIsLoading();
 
-        this.skills$ = this.skillsService.storeSelectSkills();
-        this.skillsService.getSkillsFromDb();
+        this.skills$ = this.store.pipe(select(selectAllSkills));
     }
 
     ngOnDestroy(): void

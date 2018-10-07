@@ -1,54 +1,61 @@
-import { ActionReducer } from '@ngrx/store';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { AboutEntry } from './about-entry.model';
 import { AboutActions, AboutActionsTypes } from './about.actions';
 
 /**
  * Interface for about state.
  */
-export interface State
-{
-    aboutEntries: AboutEntry[],
-}
+export interface AboutState extends EntityState<AboutEntry> { }
+
+/**
+ * Entity adapter for {@link AboutEntry} model.
+ */
+const adapter: EntityAdapter<AboutEntry> = createEntityAdapter<AboutEntry>();
 
 /**
  * Default value for about state.
  */
-const initialState: State =
-{
-    aboutEntries: [],
-}
+const initialAboutState: AboutState = adapter.getInitialState();
 
 /**
  * Reducer for about.
  * 
- * @param {State} state
- * Current about state.
+ * @param {AboutState} state
+ * Current state.
  * 
  * @param {AboutActions} action
- * About action.
+ * Action to apply.
  * 
- * @returns {State}
- * New about state according to action.
+ * @returns {AboutState}
+ * New state according to action.
  */
-export const aboutReducer = (state: State = initialState, action: AboutActions): State =>
+export function aboutReducer(state: AboutState = initialAboutState, action: AboutActions): AboutState
 {
     switch (action.type)
     {
-        case AboutActionsTypes.SetAboutEntries:
-            return { ...state, aboutEntries: action.payload };
+        case AboutActionsTypes.AboutEntriesCleared:
+            return adapter.removeAll(state);
 
+        case AboutActionsTypes.AboutEntriesSet:
+            return adapter.addAll(action.payload.entries, state);
+        
+        case AboutActionsTypes.AboutEntryAdded:
+            return adapter.upsertOne(action.payload.entry, state);
+
+        case AboutActionsTypes.AboutEntryModified:
+            return adapter.upsertOne(action.payload.entry, state);
+
+        case AboutActionsTypes.AboutEntryRemoved:
+            return adapter.removeOne(action.payload.id, state);
+        
         default:
-            return { ...state };
+            return state;
     }
 }
 
-/**
- * Returns the value of 'aboutEntries' from the given about state.
- * 
- * @param {State} state
- * About state.
- * 
- * @returns {AboutEntry[]}
- * Current value of about entries.
- */
-export const getAboutEntries = (state: State):AboutEntry[] => state.aboutEntries;
+export const {
+    selectAll,
+    selectEntities,
+    selectIds,
+    selectTotal
+} = adapter.getSelectors();
