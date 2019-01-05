@@ -25,8 +25,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
-import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-import { SidenavItemComponent } from './navigation/sidenav-item/sidenav-item.component';
 
 import { AboutService } from '../about/about.service';
 import { ContactService } from '../contact/contact.service';
@@ -44,8 +42,6 @@ import { UIService } from '../shared/ui.service';
         FooterComponent,
         HeaderComponent,
         NotFoundComponent,
-        SidenavListComponent,
-        SidenavItemComponent,
     ],
 
     imports:

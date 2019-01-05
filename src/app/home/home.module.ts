@@ -8,7 +8,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { HomeComponent } from './home.component';
-import { HomeCardComponent } from './home-card/home-card.component';
 import { HomeSkillComponent } from './home-skill/home-skill.component';
 import { skillReducer } from './skill.reducer';
 import { SkillEffects } from './skill.effects';
@@ -28,7 +27,6 @@ import { SkillEffects } from './skill.effects';
     declarations:
     [
         HomeComponent,
-        HomeCardComponent,
         HomeSkillComponent
     ],
 })
