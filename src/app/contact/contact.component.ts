@@ -22,13 +22,13 @@ export class ContactComponent implements OnInit
     private readonly COMPONENT_TITLE = `Boris Obre-Illaret : Contact`;
     private readonly COMPONENT_DESCRIPTION = `Contactez-moi via LinkedIn, Viadeo, Email ou Skype.`;
     private readonly COMPONENT_KEYWORDS = `contact, boris, obre-illaret, linkedin, viadeo, email, skype`;
-    
+
     isLoading$: Observable<boolean>;
     isButtonDisabled: boolean = true;
 
     private recaptchaToken: string;
-    @ViewChild(RecaptchaComponent) recaptchaRef: RecaptchaComponent;
-    
+    @ViewChild(RecaptchaComponent, {static: false}) recaptchaRef: RecaptchaComponent;
+
     constructor(private htmlHeader: HtmlHeaderService,
                 private uiService: UIService,
                 private contactService: ContactService,
@@ -38,7 +38,7 @@ export class ContactComponent implements OnInit
     ngOnInit()
     {
         this.htmlHeader.setHeaderTags(this.COMPONENT_TITLE, this.COMPONENT_DESCRIPTION, this.COMPONENT_KEYWORDS);
-        
+
         this.isLoading$ = this.uiService.storeSelectIsLoading();
         this.isButtonDisabled = true;
     }

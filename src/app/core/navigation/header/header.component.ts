@@ -14,10 +14,10 @@ import { NavigationItem } from '../navigation-item.model';
 export class HeaderComponent
 {
     @Output() sidenavToggle = new EventEmitter<void>();
-    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+    @ViewChild(MatMenuTrigger, {static: false}) trigger: MatMenuTrigger;
 
     navigationItems$: Observable<NavigationItem[]>;
-  
+
     constructor(public navigationService: NavigationService) { }
 
     ngOnInit(): void
@@ -26,7 +26,7 @@ export class HeaderComponent
         this.navigationItems$ = this.navigationService.subscribeToNavigationItems();
     }
 
-    onToggleSidenav() 
+    onToggleSidenav()
     {
         this.sidenavToggle.emit();
     }
